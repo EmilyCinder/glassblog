@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethereal Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: #FDFDFD; /* barely off-white */
+      color: #E5C0C6; /* primary mauve */
+    }
+
+    /* Glass panels */
+    .glass {
+      background-color: rgba(229,192,198,0.25); /* mauve tint, transparent */
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 1.5rem;
+    }
+
+    /* Accent color */
+    .accent {
+      color: #BFA0A5;
+    }
+
+    /* Landing animation */
+    #landingLogo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      font-weight: bold;
+      opacity: 1;
+      transition: opacity 1.5s ease, transform 1.5s ease;
+      z-index: 50;
+    }
+
+    #landingLogo.hidden {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+      pointer-events: none;
+    }
+
+    #mainContent {
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    #mainContent.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center">
+
+  <!-- Landing Logo -->
+  <div id="landingLogo" class="accent">Ethereal Travels</div>
+
+  <!-- Main Content -->
+  <div id="mainContent" class="w-full max-w-6xl flex flex-col items-center mt-12">
+
+    <!-- Navigation -->
+    <nav class="w-full flex justify-center gap-8 p-4 glass shadow-lg">
+      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Home</a>
+      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">About</a>
+      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Blog</a>
+      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="w-full text-center my-12 p-6 glass shadow-xl rounded-3xl">
+      <h1 class="text-5xl font-bold mb-4">Wandering Through Ancient Destinations</h1>
+      <p class="text-lg mb-6">A dreamy travel journal with soft mauve and glassy dimensions.</p>
+      <a href="#blog" class="px-6 py-3 bg-[#BFA0A5]/30 rounded-lg font-medium hover:bg-[#BFA0A5]/40 transition">Read Latest Posts</a>
+    </section>
+
+    <!-- Blog Layout -->
+    <div class="w-full flex flex-col md:flex-row gap-8 px-4">
+
+      <!-- Blog Posts -->
+      <main class="flex-1 flex flex-col gap-6" id="blog">
+
+        <!-- Example Post -->
+        <article class="glass p-6 hover:scale-105 transform transition shadow-lg">
+          <img src="https://via.placeholder.com/600x300" alt="Travel" class="rounded-2xl mb-4 w-full">
+          <h2 class="text-3xl font-semibold mb-2">Mossy Bungalows in the Mist</h2>
+          <p class="mb-4">Step into ancient forests, where sunlight dances through mossy boughs.</p>
+          <a href="#" class="font-medium hover:underline accent">Read More →</a>
+        </article>
+
+      </main>
+
+      <!-- Sidebar Widgets -->
+      <aside class="w-full md:w-80 flex flex-col gap-6">
+
+        <!-- Newsletter -->
+        <div class="glass p-6 text-center hover:scale-105 transform transition shadow-lg">
+          <h3 class="font-semibold mb-2">Subscribe</h3>
+          <p class="mb-4">Receive soft whispers from the road and new ethereal posts.</p>
+          <input type="email" placeholder="Your email" class="w-full p-2 rounded-lg border border-white/20 bg-white/20 mb-2">
+          <button class="w-full px-4 py-2 rounded-lg font-medium hover:bg-[#BFA0A5]/40 transition bg-[#E5C0C6] text-[#E5C0C6]">Subscribe</button>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-12 w-full text-center p-6 glass shadow-inner rounded-2xl accent">
+      &copy; 2025 Ethereal Travel Blog. All rights reserved.
+    </footer>
+
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const logo = document.getElementById('landingLogo');
+      const main = document.getElementById('mainContent');
+
+      setTimeout(() => {
+        logo.classList.add('hidden');
+        main.classList.add('visible');
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
