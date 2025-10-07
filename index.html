@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ethereal Travels: A dreamy travel journal featuring waterfall hikes, ancient destinations, and ethereal journeys around the world.">
+  <meta name="keywords" content="travel blog, waterfall hikes, Oregon travel, ethereal destinations, scenic trails, travel journal">
+  <meta name="author" content="Your Name">
+
   <title>Ethereal Blog</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
@@ -53,7 +57,47 @@
     #mainContent.visible {
       opacity: 1;
     }
+
+    /* Shared light mauve buttons */
+    .main-btn {
+      background-color: #BFA0A5; /* light mauve */
+      color: #FDFDFD; /* contrast text */
+      padding: 0.5rem 1rem; /* px-4 py-2 */
+      border-radius: 0.5rem; /* rounded-lg */
+      font-weight: 500; /* font-medium */
+      text-align: center;
+      display: inline-block;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .main-btn:hover {
+      background-color: #D3B8BB; /* lighter mauve on hover */
+      transform: scale(1.05);
+    }
   </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Ethereal Travels",
+  "url": "https://yourwebsite.com",
+  "description": "A dreamy travel journal featuring waterfall hikes, ancient destinations, and ethereal journeys.",
+  "author": {
+    "@type": "Person",
+    "name": "Your Name"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ethereal Travels",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yourwebsite.com/logo.png"
+    }
+  }
+}
+</script>
+
 </head>
 <body class="flex flex-col items-center">
 
@@ -63,20 +107,20 @@
   <!-- Main Content -->
   <div id="mainContent" class="w-full max-w-6xl flex flex-col items-center mt-12">
 
-    <!-- Navigation -->
-    <nav class="w-full flex justify-center gap-8 p-4 glass shadow-lg">
-      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Home</a>
-      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">About</a>
-      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Blog</a>
-      <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Contact</a>
-    </nav>
+ <header class="w-full flex flex-col items-center">
+  <nav class="w-full flex justify-center gap-8 p-4">
+    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Home</a>
+    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">About</a>
+    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Blog</a>
+    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Contact</a>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="w-full text-center my-12 p-6 glass shadow-xl rounded-3xl">
-      <h1 class="text-5xl font-bold mb-4">Wandering Through Ancient Destinations</h1>
-      <p class="text-lg mb-6">A dreamy travel journal with soft mauve and glassy dimensions.</p>
-      <a href="#blog" class="px-6 py-3 bg-[#BFA0A5]/30 rounded-lg font-medium hover:bg-[#BFA0A5]/40 transition">Read Latest Posts</a>
-    </section>
+  <section class="w-full text-center my-12 p-6 glass shadow-xl rounded-3xl">
+    <h1 class="text-5xl font-bold mb-4">Wandering Through Ancient Destinations</h1>
+    <p class="text-lg mb-6">A dreamy travel journal with soft mauve and glassy dimensions.</p>
+    <a href="#blog" class="main-btn">Read Latest Posts</a>
+  </section>
+</header>
 
     <!-- Blog Layout -->
     <div class="w-full flex flex-col md:flex-row gap-8 px-4">
@@ -85,12 +129,21 @@
       <main class="flex-1 flex flex-col gap-6" id="blog">
 
         <!-- Example Post -->
-        <article class="glass p-6 hover:scale-105 transform transition shadow-lg">
-          <img src="https://via.placeholder.com/600x300" alt="Travel" class="rounded-2xl mb-4 w-full">
-          <h2 class="text-3xl font-semibold mb-2">Mossy Bungalows in the Mist</h2>
-          <p class="mb-4">Step into ancient forests, where sunlight dances through mossy boughs.</p>
-          <a href="#" class="font-medium hover:underline accent">Read More →</a>
-        </article>
+ <!-- First Blog Section: Image Background with Overlay Text & Button -->
+<section class="relative w-full max-w-4xl rounded-3xl overflow-hidden shadow-lg hover:scale-105 transform transition">
+  <!-- Background Image -->
+  <img src="images/Mfalls.jpg" alt="Scenic waterfall hike in Oregon forest" title="Waterfall Hikes in Oregon" class="w-full h-96 object-cover">
+
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center p-6">
+    <h2 class="text-3xl md:text-4xl font-semibold text-white mb-2 drop-shadow-lg">Waterfall Hikes in Oregon</h2>
+    <p class="text-lg text-white/90 mb-4 drop-shadow-md">Wander amidst waterfall trails.</p>
+    <a href="waterfalls.html" class="main-btn">Explore Waterfalls →</a>
+  </div>
+</section>
+
+
 
       </main>
 
@@ -102,16 +155,16 @@
           <h3 class="font-semibold mb-2">Subscribe</h3>
           <p class="mb-4">Receive soft whispers from the road and new ethereal posts.</p>
           <input type="email" placeholder="Your email" class="w-full p-2 rounded-lg border border-white/20 bg-white/20 mb-2">
-          <button class="w-full px-4 py-2 rounded-lg font-medium hover:bg-[#BFA0A5]/40 transition bg-[#E5C0C6] text-[#E5C0C6]">Subscribe</button>
+          <button class="w-full main-btn">Subscribe</button>
         </div>
 
       </aside>
 
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-12 w-full text-center p-6 glass shadow-inner rounded-2xl accent">
-      &copy; 2025 Ethereal Travel Blog. All rights reserved.
+    <!-- Footer (Minimal) -->
+    <footer class="w-full flex justify-center gap-8 p-4">
+      <span class="accent"></span>
     </footer>
 
   </div>
@@ -124,7 +177,7 @@
       setTimeout(() => {
         logo.classList.add('hidden');
         main.classList.add('visible');
-      }, 1000);
+      }, 500);
     });
   </script>
 
