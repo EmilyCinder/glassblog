@@ -3,183 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ethereal Travels: A dreamy travel journal featuring waterfall hikes, ancient destinations, and ethereal journeys around the world.">
-  <meta name="keywords" content="travel blog, waterfall hikes, Oregon travel, ethereal destinations, scenic trails, travel journal">
-  <meta name="author" content="Your Name">
+  <meta name="description" content="Glass Circuits Travel — ethereal explorations through Oregon’s waterfalls and hidden natural wonders.">
+  <meta name="keywords" content="Glass Circuits Travel, waterfall hikes, Oregon waterfalls, Multnomah Falls, PNW travel blog, nature photography, ethereal design">
+  <meta name="author" content="Emily Cinder">
+  <title>Glass Circuits Travel | Ethereal Adventures in Oregon</title>
 
-  <title>Ethereal Blog</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Glass Circuits Travel",
+    "url": "https://emilycinder.github.io/glassblog/",
+    "description": "A PNW travel blog exploring Oregon’s waterfalls, scenic hikes, and ethereal destinations.",
+    "author": { "@type": "Person", "name": "Emily Cinder" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Glass Circuits Design",
+      "logo": { "@type": "ImageObject", "url": "images/logo-placeholder.png" }
+    }
+  }
+  </script>
+
   <style>
     body {
       font-family: 'EB Garamond', serif;
-      background-color: #FDFDFD; /* barely off-white */
-      color: #E5C0C6; /* primary mauve */
+      background-color: #FDFDFD;
+      color: #3a2e35;
     }
-
-    /* Glass panels */
     .glass {
-      background-color: rgba(229,192,198,0.25); /* mauve tint, transparent */
+      background: rgba(229,192,198,0.25);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 1.5rem;
     }
-
-    /* Accent color */
-    .accent {
-      color: #BFA0A5;
-    }
-
-    /* Landing animation */
-    #landingLogo {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 4rem;
-      font-weight: bold;
-      opacity: 1;
-      transition: opacity 1.5s ease, transform 1.5s ease;
-      z-index: 50;
-    }
-
-    #landingLogo.hidden {
-      opacity: 0;
-      transform: translate(-50%, -60%);
-      pointer-events: none;
-    }
-
-    #mainContent {
-      opacity: 0;
-      transition: opacity 1.5s ease;
-    }
-
-    #mainContent.visible {
-      opacity: 1;
-    }
-
-    /* Shared light mauve buttons */
-    .main-btn {
-      background-color: #BFA0A5; /* light mauve */
-      color: #FDFDFD; /* contrast text */
-      padding: 0.5rem 1rem; /* px-4 py-2 */
-      border-radius: 0.5rem; /* rounded-lg */
-      font-weight: 500; /* font-medium */
-      text-align: center;
-      display: inline-block;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .main-btn:hover {
-      background-color: #D3B8BB; /* lighter mauve on hover */
-      transform: scale(1.05);
-    }
+    .accent { color: #BFA0A5; }
+    .main-btn { background-color: #BFA0A5; color: #fff; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: all 0.3s ease; }
+    .main-btn:hover { background-color: #d3b8bb; transform: scale(1.05); }
   </style>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Ethereal Travels",
-  "url": "https://yourwebsite.com",
-  "description": "A dreamy travel journal featuring waterfall hikes, ancient destinations, and ethereal journeys.",
-  "author": {
-    "@type": "Person",
-    "name": "Your Name"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Ethereal Travels",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://yourwebsite.com/logo.png"
-    }
-  }
-}
-</script>
-
 </head>
+
 <body class="flex flex-col items-center">
 
-  <!-- Landing Logo -->
-  <div id="landingLogo" class="accent">Ethereal Travels</div>
+  <header class="w-full flex flex-col items-center mt-10">
+  <h1 class="text-4xl font-bold accent mb-2">Glass Circuits Travel</h1>
+  <p class="italic text-gray-600 mb-6">Ethereal explorations through Oregon & beyond</p>
 
-  <!-- Main Content -->
-  <div id="mainContent" class="w-full max-w-6xl flex flex-col items-center mt-12">
-
- <header class="w-full flex flex-col items-center">
-  <nav class="w-full flex justify-center gap-8 p-4">
-    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Home</a>
-    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">About</a>
-    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Blog</a>
-    <a href="#" class="font-semibold hover:text-[#BFA0A5] transition">Contact</a>
+  <nav class="flex gap-6 mb-10">
+    <a href="index.html" class="hover:text-[#BFA0A5]">Home</a>
+    <a href="about.html" class="hover:text-[#BFA0A5]">About</a>
+    <a href="blog.html" class="hover:text-[#BFA0A5]">Blog</a>
+    <a href="contact.html" class="hover:text-[#BFA0A5]">Contact</a>
   </nav>
-
-  <section class="w-full text-center my-12 p-6 glass shadow-xl rounded-3xl">
-    <h1 class="text-5xl font-bold mb-4">Wandering Through Ancient Destinations</h1>
-    <p class="text-lg mb-6">A dreamy travel journal with soft mauve and glassy dimensions.</p>
-    <a href="#blog" class="main-btn">Read Latest Posts</a>
-  </section>
 </header>
 
-    <!-- Blog Layout -->
-    <div class="w-full flex flex-col md:flex-row gap-8 px-4">
 
-      <!-- Blog Posts -->
-      <main class="flex-1 flex flex-col gap-6" id="blog">
+  <main id="blog" class="w-full max-w-5xl px-4">
+    <article class="relative rounded-3xl overflow-hidden shadow-lg hover:scale-105 transform transition glass mb-10">
+      <img src="images/Mfalls.jpg" alt="Waterfall hikes in Oregon - scenic forest trail" class="w-full h-96 object-cover">
+      <div class="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center p-6">
+        <h2 class="text-3xl md:text-4xl text-white font-semibold mb-2 drop-shadow-lg">Waterfall Hikes in Oregon</h2>
+        <p class="text-white/90 mb-4 drop-shadow-md">Discover Multnomah Falls and more serene cascades.</p>
+        <a href="blog.html" class="main-btn">Explore Blog →</a>
+      </div>
+    </article>
 
-        <!-- Example Post -->
- <!-- First Blog Section: Image Background with Overlay Text & Button -->
-<section class="relative w-full max-w-4xl rounded-3xl overflow-hidden shadow-lg hover:scale-105 transform transition">
-  <!-- Background Image -->
-  <img src="images/Mfalls.jpg" alt="Scenic waterfall hike in Oregon forest" title="Waterfall Hikes in Oregon" class="w-full h-96 object-cover">
+    <section class="glass p-8 text-center">
+      <h3 class="text-2xl font-semibold mb-2 accent">Subscribe</h3>
+      <p class="mb-4">Coming soon — stay tuned for ethereal travel updates </p>
+      <form>
+        <input type="email" placeholder="Your email" class="w-full p-2 rounded-lg border border-white/30 bg-white/30 mb-2" disabled>
+        <button class="main-btn opacity-60 cursor-not-allowed">Coming Soon</button>
+      </form>
+    </section>
+  </main>
 
-
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center p-6">
-    <h2 class="text-3xl md:text-4xl font-semibold text-white mb-2 drop-shadow-lg">Waterfall Hikes in Oregon</h2>
-    <p class="text-lg text-white/90 mb-4 drop-shadow-md">Wander amidst waterfall trails.</p>
-    <a href="waterfalls.html" class="main-btn">Explore Waterfalls →</a>
-  </div>
-</section>
-
-
-
-      </main>
-
-      <!-- Sidebar Widgets -->
-      <aside class="w-full md:w-80 flex flex-col gap-6">
-
-        <!-- Newsletter -->
-        <div class="glass p-6 text-center hover:scale-105 transform transition shadow-lg">
-          <h3 class="font-semibold mb-2">Subscribe</h3>
-          <p class="mb-4">Receive soft whispers from the road and new ethereal posts.</p>
-          <input type="email" placeholder="Your email" class="w-full p-2 rounded-lg border border-white/20 bg-white/20 mb-2">
-          <button class="w-full main-btn">Subscribe</button>
-        </div>
-
-      </aside>
-
-    </div>
-
-    <!-- Footer (Minimal) -->
-    <footer class="w-full flex justify-center gap-8 p-4">
-      <span class="accent"></span>
-    </footer>
-
-  </div>
-
-  <script>
-    window.addEventListener('load', () => {
-      const logo = document.getElementById('landingLogo');
-      const main = document.getElementById('mainContent');
-
-      setTimeout(() => {
-        logo.classList.add('hidden');
-        main.classList.add('visible');
-      }, 500);
-    });
-  </script>
-
+  <footer class="mt-16 mb-6 text-sm text-gray-500">
+    © 2025 Glass Circuits Travel — Designed by Emily Cinder
+  </footer>
 </body>
 </html>

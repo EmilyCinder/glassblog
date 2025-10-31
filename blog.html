@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Glass Circuits Travel Blog — ethereal explorations across Oregon and the Pacific Northwest. Discover waterfall hikes, magic walks, and hidden PNW destinations." />
+  <meta name="keywords" content="Glass Circuits Travel, Oregon hikes, PNW blog, waterfalls, Portland magic walks, travel photography, scenic trails" />
+  <meta name="author" content="Emily Cinder" />
+  <title>Blog | Glass Circuits Travel</title>
+
+  <!-- Tailwind + Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Glass Circuits Travel",
+    "url": "https://emilycinder.github.io/glassblog/blog.html",
+    "description": "A travel journal exploring ethereal places across Oregon and the PNW — from waterfalls to forest paths.",
+    "author": { "@type": "Person", "name": "Emily Cinder" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Glass Circuits Design",
+      "logo": { "@type": "ImageObject", "url": "images/logo-placeholder.png" }
+    }
+  }
+  </script>
+
+  <style>
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: #fdfdfd;
+      color: #3a2e35;
+    }
+
+    .glass {
+      background: rgba(229,192,198,0.25);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 1.5rem;
+    }
+
+    .accent {
+      color: #bfa0a5;
+    }
+
+    .main-btn {
+      background-color: #bfa0a5;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .main-btn:hover {
+      background-color: #d3b8bb;
+      transform: scale(1.05);
+    }
+
+    nav a {
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #bfa0a5;
+    }
+
+    .section-header {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #bfa0a5;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body class="flex flex-col items-center">
+
+  <!-- HEADER -->
+  <header class="w-full flex flex-col items-center mt-10">
+    <h1 class="text-4xl font-bold accent mb-2">Glass Circuits Travel</h1>
+    <p class="italic text-gray-600 mb-6">Ethereal explorations through Oregon & beyond</p>
+
+    <nav class="flex gap-6 mb-10">
+      <a href="index.html" class="hover:text-[#BFA0A5]">Home</a>
+      <a href="about.html" class="hover:text-[#BFA0A5]">About</a>
+      <a href="blog.html" class="hover:text-[#BFA0A5]">Blog</a>
+      <a href="contact.html" class="hover:text-[#BFA0A5]">Contact</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="w-full max-w-6xl px-4 space-y-16">
+
+    <!-- SECTION 1: Waterfall Hikes -->
+    <section id="waterfalls" class="space-y-8">
+      <h2 class="section-header">Waterfall Hikes in Oregon</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Multnomah Falls -->
+        <!-- Multnomah Falls -->
+<article class="relative glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition group">
+  <!-- Full-click overlay -->
+  <a href="multnomah.html" class="absolute inset-0 z-10"></a>
+
+  <!-- Image -->
+  <img src="images/Mfalls.jpg" alt="Multnomah Falls Oregon" class="w-full h-64 object-cover" />
+
+  <!-- Content -->
+  <div class="p-6 flex flex-col justify-between h-full relative z-20">
+    <div>
+      <h3 class="text-2xl font-semibold mb-2 accent group-hover:underline">Multnomah Falls</h3>
+      <p class="text-gray-700 mb-4">A timeless Oregon icon — cascading 620 feet through mossy basalt cliffs in the Columbia River Gorge.</p>
+    </div>
+    <span class="main-btn text-center inline-block">Read Full Guide →</span>
+  </div>
+</article>
+
+
+        <!-- Wahkeena Falls -->
+        <article class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition">
+          <img src="images/placeholder-wahkeena.jpg" alt="Wahkeena Falls" class="w-full h-64 object-cover" />
+          <div class="p-6 flex flex-col justify-between h-full">
+            <div>
+              <h3 class="text-2xl font-semibold mb-2 accent">Wahkeena Falls</h3>
+              <p class="text-gray-700 mb-4">A graceful waterfall just steps from Multnomah — flowing through a fairytale canyon of ferns and light.</p>
+            </div>
+            <a href="#" class="main-btn text-center opacity-70 cursor-not-allowed">Coming Soon</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-6">
+        <a href="waterfalls.html" class="main-btn">View All Waterfall Posts →</a>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Magic Walks -->
+    <section id="magicwalks" class="space-y-8">
+      <h2 class="section-header">Magic Walks in Portland, OR</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Mt. Tabor -->
+        <!-- Mt. Tabor -->
+<article class="relative glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition group">
+  <!-- Full-click overlay -->
+  <a href="mttabor.html" class="absolute inset-0 z-10"></a>
+
+  <!-- Image -->
+  <img src="images/mt tabor-20251021T163458Z-1-001/mt tabor/tabor04.JPG" alt="Mount Tabor Park Portland" class="w-full h-64 object-cover" />
+
+  <!-- Content -->
+  <div class="p-6 flex flex-col justify-between h-full relative z-20">
+    <div>
+      <h3 class="text-2xl font-semibold mb-2 accent group-hover:underline">Mount Tabor Park</h3>
+      <p class="text-gray-700 mb-4">
+       Wander through the cedars and venture into the volcano.
+      </p>
+    </div>
+    <span class="main-btn text-center inline-block">Read Full Walk →</span>
+  </div>
+</article>
+
+
+        <!-- Forest Park -->
+        <article class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition">
+          <img src="images/placeholder-forestpark.jpg" alt="Forest Park Portland" class="w-full h-64 object-cover" />
+          <div class="p-6 flex flex-col justify-between h-full">
+            <div>
+              <h3 class="text-2xl font-semibold mb-2 accent">Forest Park</h3>
+              <p class="text-gray-700 mb-4">Step into the mossy quiet of one of America’s largest urban forests — where every turn hums with green.</p>
+            </div>
+            <a href="#" class="main-btn text-center opacity-70 cursor-not-allowed">Coming Soon</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-6">
+        <a href="#" class="main-btn opacity-70 cursor-not-allowed">Full Magic Walks Collection — Coming Soon</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- BACK BUTTON -->
+  <div class="text-center mt-20">
+    <a href="index.html" class="main-btn">← Back to Home</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 mb-8 text-sm text-gray-500 text-center">
+    © 2025 Glass Circuits Travel — Designed by Emily Cinder
+  </footer>
+</body>
+</html>
