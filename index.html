@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Glass Circuits Travel — ethereal explorations through Oregon’s waterfalls and hidden natural wonders.">
+  <meta name="description" content="Glass Circuits Travel — ethereal explorations through Oregon's waterfalls and hidden natural wonders.">
   <meta name="keywords" content="Glass Circuits Travel, waterfall hikes, Oregon waterfalls, Multnomah Falls, PNW travel blog, nature photography, ethereal design">
   <meta name="author" content="Emily Cinder">
   <title>Glass Circuits Travel | Ethereal Adventures in Oregon</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script type="application/ld+json">
   {
@@ -17,7 +18,7 @@
     "@type": "Blog",
     "name": "Glass Circuits Travel",
     "url": "https://emilycinder.github.io/glassblog/",
-    "description": "A PNW travel blog exploring Oregon’s waterfalls, scenic hikes, and ethereal destinations.",
+    "description": "A PNW travel blog exploring Oregon's waterfalls, scenic hikes, and ethereal destinations.",
     "author": { "@type": "Person", "name": "Emily Cinder" },
     "publisher": {
       "@type": "Organization",
@@ -28,60 +29,332 @@
   </script>
 
   <style>
+    :root {
+      --aged-paper: #f5f1e8;
+      --dusty-mauve: #b39e9d;
+      --old-pink: #d4b4b4;
+      --vintage-rose: #c9a8a9;
+      --shadow-mauve: #8a7679;
+      --sepia-brown: #8b7d6b;
+    }
+    
     body {
+      font-family: 'Crimson Pro', serif;
+      background-color: var(--aged-paper);
+      color: var(--shadow-mauve);
+    }
+    
+    h1, h2, h3, h4 {
       font-family: 'EB Garamond', serif;
-      background-color: #FDFDFD;
-      color: #3a2e35;
+      font-weight: 600;
+      color: var(--shadow-mauve);
     }
-    .glass {
-      background: rgba(229,192,198,0.25);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 1.5rem;
+    
+    .vintage-card {
+      background: rgba(245, 241, 232, 0.95);
+      border: 1px solid var(--dusty-mauve);
+      box-shadow: 0 4px 12px rgba(139, 125, 107, 0.1);
     }
-    .accent { color: #BFA0A5; }
-    .main-btn { background-color: #BFA0A5; color: #fff; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: all 0.3s ease; }
-    .main-btn:hover { background-color: #d3b8bb; transform: scale(1.05); }
+    
+    .ad-space {
+      background: rgba(245, 241, 232, 0.9);
+      border: 1px solid var(--sepia-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--shadow-mauve);
+      transition: all 0.3s ease;
+    }
+    
+    .ad-space:hover {
+      border: 1px solid var(--old-pink);
+      background: rgba(245, 241, 232, 0.95);
+    }
+    
+    .nav-link {
+      position: relative;
+      color: var(--shadow-mauve);
+      font-family: 'EB Garamond', serif;
+    }
+    
+    .nav-link:hover {
+      color: var(--old-pink);
+    }
+    
+    .vintage-btn {
+      background: var(--shadow-mauve);
+      color: var(--aged-paper);
+      padding: 0.75rem 2rem;
+      border: 1px solid var(--sepia-brown);
+      font-family: 'EB Garamond', serif;
+      transition: all 0.3s ease;
+    }
+    
+    .vintage-btn:hover {
+      background: var(--old-pink);
+      border-color: var(--old-pink);
+      transform: translateY(-2px);
+    }
+    
+    .featured-overlay {
+      background: linear-gradient(to bottom, rgba(139, 125, 107, 0.1), rgba(138, 118, 121, 0.8));
+    }
+    
+    .subscribe-input {
+      background: rgba(245, 241, 232, 0.95);
+      border: 1px solid var(--sepia-brown);
+      color: var(--shadow-mauve);
+      padding: 0.875rem 1.25rem;
+      font-family: 'Crimson Pro', serif;
+    }
+    
+    .blog-card {
+      transition: all 0.3s ease;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(139, 125, 107, 0.15);
+    }
+    
+    .category-tag {
+      background-color: rgba(212, 180, 180, 0.15);
+      color: var(--shadow-mauve);
+      border: 1px solid rgba(212, 180, 180, 0.4);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-family: 'EB Garamond', serif;
+    }
+    
+    .text-dusty-mauve { color: var(--dusty-mauve); }
+    .text-old-pink { color: var(--old-pink); }
+    .text-shadow-mauve { color: var(--shadow-mauve); }
+    .bg-aged-paper { background-color: var(--aged-paper); }
+    
+    @media (max-width: 768px) {
+      .ad-space {
+        min-height: 100px;
+      }
+    }
   </style>
 </head>
 
-<body class="flex flex-col items-center">
+<body class="flex flex-col min-h-screen bg-aged-paper">
+  <!-- Header -->
+  <header class="w-full py-8 px-4 flex flex-col items-center mt-4">
+    <div class="text-center mb-8 max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow-mauve">Glass Circuits Travel</h1>
+      <p class="italic text-old-pink text-lg md:text-xl">Ethereal explorations through Oregon & beyond</p>
+    </div>
 
-  <header class="w-full flex flex-col items-center mt-10">
-  <h1 class="text-4xl font-bold accent mb-2">Glass Circuits Travel</h1>
-  <p class="italic text-gray-600 mb-6">Ethereal explorations through Oregon & beyond</p>
+    <!-- Navigation -->
+    <nav class="flex flex-wrap justify-center gap-6 md:gap-8 mb-10">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="destinations.html" class="nav-link">Destinations</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
-  <nav class="flex gap-6 mb-10">
-    <a href="index.html" class="hover:text-[#BFA0A5]">Home</a>
-    <a href="about.html" class="hover:text-[#BFA0A5]">About</a>
-    <a href="blog.html" class="hover:text-[#BFA0A5]">Blog</a>
-    <a href="contact.html" class="hover:text-[#BFA0A5]">Contact</a>
-  </nav>
-</header>
-
-
-  <main id="blog" class="w-full max-w-5xl px-4">
-    <article class="relative rounded-3xl overflow-hidden shadow-lg hover:scale-105 transform transition glass mb-10">
-      <img src="images/Mfalls.jpg" alt="Waterfall hikes in Oregon - scenic forest trail" class="w-full h-96 object-cover">
-      <div class="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-center p-6">
-        <h2 class="text-3xl md:text-4xl text-white font-semibold mb-2 drop-shadow-lg">Waterfall Hikes in Oregon</h2>
-        <p class="text-white/90 mb-4 drop-shadow-md">Discover Multnomah Falls and more serene cascades.</p>
-        <a href="blog.html" class="main-btn">Explore Blog →</a>
+  <main class="flex-grow w-full max-w-7xl mx-auto px-4">
+    <!-- Featured article -->
+    <section class="mb-12">
+      <div class="vintage-card overflow-hidden">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+               alt="Misty waterfall in Oregon forest" 
+               class="w-full h-64 md:h-96 object-cover">
+          <div class="absolute inset-0 featured-overlay flex flex-col justify-end p-6 md:p-10">
+            <div class="max-w-3xl">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <span class="category-tag">Waterfalls</span>
+                <span class="text-old-pink/90 text-sm">June 15, 2025</span>
+              </div>
+              <h2 class="text-2xl md:text-4xl text-white font-semibold mb-4">The Ethereal Beauty of Oregon's Waterfall Corridor</h2>
+              <p class="text-old-pink/90 mb-6 max-w-2xl">Discover the misty trails and breathtaking cascades along the Historic Columbia River Highway.</p>
+              <a href="blog.html" class="vintage-btn inline-block">Explore Now →</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </article>
-
-    <section class="glass p-8 text-center">
-      <h3 class="text-2xl font-semibold mb-2 accent">Subscribe</h3>
-      <p class="mb-4">Coming soon — stay tuned for ethereal travel updates </p>
-      <form>
-        <input type="email" placeholder="Your email" class="w-full p-2 rounded-lg border border-white/30 bg-white/30 mb-2" disabled>
-        <button class="main-btn opacity-60 cursor-not-allowed">Coming Soon</button>
-      </form>
     </section>
+
+    <!-- Main content with ads -->
+    <div class="flex flex-col lg:flex-row gap-8 mb-16">
+      <!-- Blog content -->
+      <div class="lg:w-2/3">
+        <!-- Ad space at top of content -->
+        <div class="ad-space rounded mb-10 p-6 text-center">
+          <div class="text-dusty-mauve">
+            <p class="mb-2">Advertisement Space</p>
+            <p class="text-sm">728x90</p>
+          </div>
+        </div>
+        
+        <div class="mb-12">
+          <h2 class="text-3xl font-semibold mb-8 text-shadow-mauve">Recent Posts</h2>
+          
+          <!-- Blog cards -->
+          <div class="space-y-10 mb-12">
+            <!-- Blog Card 1 -->
+            <article class="vintage-card blog-card p-6">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/3">
+                  <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                       alt="Oregon coastline" 
+                       class="w-full h-48 md:h-full object-cover">
+                </div>
+                <div class="md:w-2/3">
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="category-tag">Coastal</span>
+                    <span class="text-dusty-mauve text-sm">May 28, 2025</span>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-4 text-shadow-mauve">The Rugged Beauty of Oregon's Coastline</h3>
+                  <p class="text-shadow-mauve mb-5">Exploring hidden coves and dramatic sea stacks along the Pacific coastline.</p>
+                  <a href="#" class="text-old-pink font-medium hover:text-shadow-mauve">Continue Reading →</a>
+                </div>
+              </div>
+            </article>
+            
+            <!-- Blog Card 2 -->
+            <article class="vintage-card blog-card p-6">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/3">
+                  <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                       alt="Mossy forest" 
+                       class="w-full h-48 md:h-full object-cover">
+                </div>
+                <div class="md:w-2/3">
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="category-tag">Forests</span>
+                    <span class="text-dusty-mauve text-sm">May 12, 2025</span>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-4 text-shadow-mauve">Moss-Covered Trails: The Magic of Old-Growth Forests</h3>
+                  <p class="text-shadow-mauve mb-5">Venturing into Oregon's ancient forests where centuries-old trees create cathedral-like spaces.</p>
+                  <a href="#" class="text-old-pink font-medium hover:text-shadow-mauve">Continue Reading →</a>
+                </div>
+              </div>
+            </article>
+            
+            <!-- In-content ad space -->
+            <div class="ad-space rounded my-10 p-8 text-center">
+              <div class="text-dusty-mauve">
+                <p class="mb-2">Advertisement</p>
+                <p class="text-sm">300x250</p>
+              </div>
+            </div>
+            
+            <!-- Blog Card 3 -->
+            <article class="vintage-card blog-card p-6">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/3">
+                  <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                       alt="Mount Hood" 
+                       class="w-full h-48 md:h-full object-cover">
+                </div>
+                <div class="md:w-2/3">
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="category-tag">Mountains</span>
+                    <span class="text-dusty-mauve text-sm">April 30, 2025</span>
+                  </div>
+                  <h3 class="text-xl font-semibold mb-4 text-shadow-mauve">Reflections of Mount Hood: Alpine Lakes & Wildflower Meadows</h3>
+                  <p class="text-shadow-mauve mb-5">Journey to the pristine alpine lakes that mirror Oregon's tallest peak.</p>
+                  <a href="#" class="text-old-pink font-medium hover:text-shadow-mauve">Continue Reading →</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <aside class="lg:w-1/3">
+        <!-- About section -->
+        <div class="vintage-card p-6 mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-shadow-mauve">About the Author</h3>
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-16 h-16 rounded-full overflow-hidden border border-dusty-mauve">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                   alt="Emily Cinder" 
+                   class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h4 class="font-semibold text-shadow-mauve">Emily Cinder</h4>
+              <p class="text-dusty-mauve text-sm">Writer & Photographer</p>
+            </div>
+          </div>
+          <p class="text-shadow-mauve">Exploring Oregon's hidden landscapes and sharing ethereal travel experiences.</p>
+        </div>
+        
+        <!-- Vertical ad space -->
+        <div class="ad-space rounded mb-8 p-8 text-center">
+          <div class="text-dusty-mauve">
+            <p class="mb-2">Advertisement</p>
+            <p class="text-sm">300x600</p>
+          </div>
+        </div>
+        
+        <!-- Subscription form -->
+        <div class="vintage-card p-8 mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-shadow-mauve">Subscribe</h3>
+          <p class="text-shadow-mauve mb-6">Get updates on new posts and travel guides.</p>
+          <form class="space-y-4">
+            <input type="email" placeholder="Your email" class="subscribe-input w-full rounded">
+            <button type="submit" class="vintage-btn w-full">Subscribe</button>
+          </form>
+        </div>
+        
+        <!-- Small square ad space -->
+        <div class="ad-space rounded p-8 text-center">
+          <div class="text-dusty-mauve">
+            <p class="mb-2">Advertisement</p>
+            <p class="text-sm">250x250</p>
+          </div>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <footer class="mt-16 mb-6 text-sm text-gray-500">
-    © 2025 Glass Circuits Travel — Designed by Emily Cinder
+  <!-- Footer -->
+  <footer class="mt-auto py-8 px-4 border-t border-dusty-mauve/20">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <p class="text-shadow-mauve font-semibold mb-2">Glass Circuits Travel</p>
+          <p class="text-dusty-mauve text-sm">© 2025 Emily Cinder</p>
+        </div>
+        
+        <div class="flex gap-6 mb-6 md:mb-0">
+          <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-pinterest"></i></a>
+          <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-twitter"></i></a>
+        </div>
+        
+        <div class="text-center">
+          <p class="text-dusty-mauve text-sm italic">"Not all those who wander are lost."</p>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simple subscription form
+      const subscribeBtn = document.querySelector('button[type="submit"]');
+      if(subscribeBtn) {
+        subscribeBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const emailInput = document.querySelector('input[type="email"]');
+          if(emailInput.value) {
+            alert('Thank you for subscribing!');
+            emailInput.value = '';
+          } else {
+            alert('Please enter your email address.');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

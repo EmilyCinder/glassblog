@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Glass Circuits Travel Blog — ethereal explorations across Oregon and the Pacific Northwest. Discover waterfall hikes, magic walks, and hidden PNW destinations." />
-  <meta name="keywords" content="Glass Circuits Travel, Oregon hikes, PNW blog, waterfalls, Portland magic walks, travel photography, scenic trails" />
-  <meta name="author" content="Emily Cinder" />
-  <title>Blog | Glass Circuits Travel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Glass Circuits Travel — ethereal explorations through Oregon's waterfalls and hidden natural wonders.">
+  <meta name="keywords" content="Glass Circuits Travel, waterfall hikes, Oregon waterfalls, Multnomah Falls, PNW travel blog, nature photography, ethereal design">
+  <meta name="author" content="Emily Cinder">
+  <title>Glass Circuits Travel | Ethereal Adventures in Oregon</title>
 
-  <!-- Tailwind + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Glass Circuits Travel",
-    "url": "https://emilycinder.github.io/glassblog/blog.html",
-    "description": "A travel journal exploring ethereal places across Oregon and the PNW — from waterfalls to forest paths.",
+    "url": "https://emilycinder.github.io/glassblog/",
+    "description": "A PNW travel blog exploring Oregon's waterfalls, scenic hikes, and ethereal destinations.",
     "author": { "@type": "Person", "name": "Emily Cinder" },
     "publisher": {
       "@type": "Organization",
@@ -30,169 +29,535 @@
   </script>
 
   <style>
+    :root {
+      --parchment: #f4ede4;
+      --dark-mauve: #5d4a5a;
+      --rosy-mauve: #9e7e8c;
+      --middle-earth-green: #7a8c6f;
+      --earth-brown: #8a7268;
+      --aged-gold: #b59a6d;
+      --shadow-mauve: #4a3a46;
+    }
+    
     body {
-      font-family: 'EB Garamond', serif;
-      background-color: #fdfdfd;
-      color: #3a2e35;
+      font-family: 'Crimson Pro', serif;
+      background-color: var(--parchment);
+      color: var(--dark-mauve);
+      background-image: 
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239e7e8c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E"),
+        linear-gradient(to bottom, rgba(244, 237, 228, 0.95), rgba(244, 237, 228, 0.8));
     }
-
-    .glass {
-      background: rgba(229,192,198,0.25);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 1.5rem;
+    
+    h1, h2, h3, h4 {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      color: var(--shadow-mauve);
+      letter-spacing: 0.02em;
     }
-
-    .accent {
-      color: #bfa0a5;
+    
+    .middle-earth-border {
+      border: 1px solid var(--rosy-mauve);
+      border-radius: 2px;
+      position: relative;
+      background: linear-gradient(to bottom, rgba(244, 237, 228, 0.9), rgba(244, 237, 228, 0.7));
     }
-
-    .main-btn {
-      background-color: #bfa0a5;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+    
+    .middle-earth-border::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: -4px;
+      bottom: -4px;
+      border: 1px solid rgba(158, 126, 140, 0.4);
+      z-index: -1;
+    }
+    
+    .middle-earth-card {
+      background: rgba(244, 237, 228, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--rosy-mauve);
+      box-shadow: 
+        0 8px 25px rgba(93, 74, 90, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .middle-earth-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--aged-gold), var(--rosy-mauve), var(--middle-earth-green));
+    }
+    
+    .elvish-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--rosy-mauve), var(--middle-earth-green), transparent);
+      margin: 2.5rem 0;
+      position: relative;
+    }
+    
+    .elvish-divider::before {
+      content: '✧';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--aged-gold);
+      background: var(--parchment);
+      padding: 0 15px;
+      font-size: 16px;
+    }
+    
+    .ad-space {
+      background: linear-gradient(135deg, rgba(244, 237, 228, 0.9) 0%, rgba(235, 227, 215, 0.9) 100%);
+      border: 1px solid var(--earth-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-mauve);
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ad-space::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(45deg, transparent 95%, rgba(158, 126, 140, 0.1) 95%),
+        linear-gradient(-45deg, transparent 95%, rgba(158, 126, 140, 0.1) 95%);
+      background-size: 20px 20px;
+    }
+    
+    .ad-space:hover {
+      border: 1px solid var(--rosy-mauve);
+      background: rgba(244, 237, 228, 0.95);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(93, 74, 90, 0.15);
+    }
+    
+    .nav-link {
+      position: relative;
+      padding-bottom: 5px;
+      color: var(--dark-mauve);
+      font-family: 'Cinzel', serif;
+      font-weight: 500;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rosy-mauve), var(--aged-gold));
+      transition: width 0.4s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--rosy-mauve);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .middle-earth-btn {
+      background: linear-gradient(to bottom, var(--dark-mauve), var(--shadow-mauve));
+      color: var(--parchment);
+      padding: 0.75rem 2rem;
+      border: 1px solid var(--shadow-mauve);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+    
+    .middle-earth-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(244, 237, 228, 0.2), transparent);
+      transition: left 0.7s ease;
+    }
+    
+    .middle-earth-btn:hover {
+      background: linear-gradient(to bottom, var(--rosy-mauve), var(--dark-mauve));
+      border-color: var(--rosy-mauve);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(158, 126, 140, 0.3);
+      color: var(--parchment);
+    }
+    
+    .middle-earth-btn:hover::before {
+      left: 100%;
+    }
+    
+    .featured-article-overlay {
+      background: linear-gradient(to bottom, rgba(93, 74, 90, 0.1), rgba(74, 58, 70, 0.85));
+    }
+    
+    .subscribe-input {
+      background: rgba(244, 237, 228, 0.9);
+      border: 1px solid var(--earth-brown);
+      color: var(--dark-mauve);
+      padding: 0.875rem 1.25rem;
+      font-family: 'Crimson Pro', serif;
       transition: all 0.3s ease;
     }
-
-    .main-btn:hover {
-      background-color: #d3b8bb;
-      transform: scale(1.05);
+    
+    .subscribe-input:focus {
+      outline: none;
+      border-color: var(--rosy-mauve);
+      box-shadow: 0 0 0 3px rgba(158, 126, 140, 0.15);
     }
-
-    nav a {
-      transition: color 0.3s ease;
+    
+    .social-icon {
+      color: var(--earth-brown);
+      transition: all 0.3s ease;
     }
-
-    nav a:hover {
-      color: #bfa0a5;
+    
+    .social-icon:hover {
+      color: var(--rosy-mauve);
+      transform: translateY(-3px) scale(1.1);
     }
-
-    .section-header {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #bfa0a5;
-      text-align: center;
-      margin-bottom: 1.5rem;
+    
+    .blog-card {
+      transition: all 0.4s ease;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 
+        0 15px 35px rgba(93, 74, 90, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+    
+    .category-tag {
+      background-color: rgba(122, 140, 111, 0.15);
+      color: var(--middle-earth-green);
+      border: 1px solid rgba(122, 140, 111, 0.4);
+      padding: 0.25rem 0.875rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      font-family: 'Cinzel', serif;
+      font-weight: 500;
+    }
+    
+    .parchment-texture {
+      background-image: 
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239e7e8c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    
+    .middle-earth-header {
+      text-shadow: 1px 1px 3px rgba(93, 74, 90, 0.2);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .middle-earth-header::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--aged-gold), var(--rosy-mauve), var(--aged-gold), transparent);
+    }
+    
+    .runestone {
+      position: absolute;
+      color: var(--rosy-mauve);
+      opacity: 0.1;
+      font-size: 8rem;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    @media (max-width: 768px) {
+      .middle-earth-border::before {
+        display: none;
+      }
+      
+      .runestone {
+        display: none;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
 
-<body class="flex flex-col items-center">
+<body class="flex flex-col min-h-screen relative parchment-texture">
+  <!-- Decorative Middle Earth elements -->
+  <div class="runestone top-10 left-5 hidden md:block">ᚦ</div>
+  <div class="runestone top-20 right-10 hidden md:block">ᛗ</div>
+  <div class="runestone bottom-1/4 left-10 hidden md:block">ᛞ</div>
+  
+  <!-- Header with Middle Earth aesthetic -->
+  <header class="w-full py-10 px-4 flex flex-col items-center mt-2 md:mt-6">
+    <div class="text-center mb-8 max-w-4xl">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 middle-earth-header">Glass Circuits Travel</h1>
+      <p class="italic text-rosy-mauve text-xl md:text-2xl tracking-wide">Journeys through Oregon's Enchanted Realms</p>
+    </div>
 
-  <!-- HEADER -->
-  <header class="w-full flex flex-col items-center mt-10">
-    <h1 class="text-4xl font-bold accent mb-2">Glass Circuits Travel</h1>
-    <p class="italic text-gray-600 mb-6">Ethereal explorations through Oregon & beyond</p>
-
-    <nav class="flex gap-6 mb-10">
-      <a href="index.html" class="hover:text-[#BFA0A5]">Home</a>
-      <a href="about.html" class="hover:text-[#BFA0A5]">About</a>
-      <a href="blog.html" class="hover:text-[#BFA0A5]">Blog</a>
-      <a href="contact.html" class="hover:text-[#BFA0A5]">Contact</a>
+    <!-- Navigation with elvish styling -->
+    <nav class="flex flex-wrap justify-center gap-8 md:gap-12 mb-10">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">Chronicles</a>
+      <a href="blog.html" class="nav-link">Explorations</a>
+      <a href="destinations.html" class="nav-link">Realms</a>
+      <a href="contact.html" class="nav-link">Scrolls</a>
     </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="w-full max-w-6xl px-4 space-y-16">
-
-    <!-- SECTION 1: Waterfall Hikes -->
-    <section id="waterfalls" class="space-y-8">
-      <h2 class="section-header">Waterfall Hikes in Oregon</h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Multnomah Falls -->
-        <!-- Multnomah Falls -->
-<article class="relative glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition group">
-  <!-- Full-click overlay -->
-  <a href="multnomah.html" class="absolute inset-0 z-10"></a>
-
-  <!-- Image -->
-  <img src="images/Mfalls.jpg" alt="Multnomah Falls Oregon" class="w-full h-64 object-cover" />
-
-  <!-- Content -->
-  <div class="p-6 flex flex-col justify-between h-full relative z-20">
-    <div>
-      <h3 class="text-2xl font-semibold mb-2 accent group-hover:underline">Multnomah Falls</h3>
-      <p class="text-gray-700 mb-4">A timeless Oregon icon — cascading 620 feet through mossy basalt cliffs in the Columbia River Gorge.</p>
-    </div>
-    <span class="main-btn text-center inline-block">Read Full Guide →</span>
-  </div>
-</article>
-
-
-        <!-- Wahkeena Falls -->
-        <article class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition">
-          <img src="images/placeholder-wahkeena.jpg" alt="Wahkeena Falls" class="w-full h-64 object-cover" />
-          <div class="p-6 flex flex-col justify-between h-full">
-            <div>
-              <h3 class="text-2xl font-semibold mb-2 accent">Wahkeena Falls</h3>
-              <p class="text-gray-700 mb-4">A graceful waterfall just steps from Multnomah — flowing through a fairytale canyon of ferns and light.</p>
+  <main class="flex-grow w-full max-w-7xl mx-auto px-4 relative z-10">
+    <!-- Featured article with Middle Earth aesthetic -->
+    <section class="mb-16">
+      <div class="middle-earth-border middle-earth-card overflow-hidden">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+               alt="Misty waterfall in ancient forest" 
+               class="w-full h-64 md:h-96 object-cover">
+          <div class="absolute inset-0 featured-article-overlay flex flex-col justify-end p-6 md:p-12">
+            <div class="max-w-3xl">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <span class="category-tag">Waterfall Realms</span>
+                <span class="category-tag">Ancient Trails</span>
+                <span class="text-rosy-mauve/90 text-sm">Midsummer's Eve, 2025</span>
+              </div>
+              <h2 class="text-3xl md:text-5xl text-parchment font-semibold mb-4 leading-tight">The Misty Cascades of Oregon's Hidden Valleys</h2>
+              <p class="text-rosy-mauve/90 mb-6 max-w-2xl">Venture beyond the known paths to discover waterfalls that whisper ancient secrets, where moss-draped stones guard the entrance to ethereal realms.</p>
+              <a href="blog.html" class="middle-earth-btn inline-block">Begin the Journey →</a>
             </div>
-            <a href="#" class="main-btn text-center opacity-70 cursor-not-allowed">Coming Soon</a>
           </div>
-        </article>
-      </div>
-
-      <div class="text-center mt-6">
-        <a href="waterfalls.html" class="main-btn">View All Waterfall Posts →</a>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION 2: Magic Walks -->
-    <section id="magicwalks" class="space-y-8">
-      <h2 class="section-header">Magic Walks in Portland, OR</h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Mt. Tabor -->
-        <!-- Mt. Tabor -->
-<article class="relative glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition group">
-  <!-- Full-click overlay -->
-  <a href="mttabor.html" class="absolute inset-0 z-10"></a>
-
-  <!-- Image -->
-  <img src="images/mt tabor-20251021T163458Z-1-001/mt tabor/tabor04.JPG" alt="Mount Tabor Park Portland" class="w-full h-64 object-cover" />
-
-  <!-- Content -->
-  <div class="p-6 flex flex-col justify-between h-full relative z-20">
-    <div>
-      <h3 class="text-2xl font-semibold mb-2 accent group-hover:underline">Mount Tabor Park</h3>
-      <p class="text-gray-700 mb-4">
-       Wander through the cedars and venture into the volcano.
-      </p>
-    </div>
-    <span class="main-btn text-center inline-block">Read Full Walk →</span>
-  </div>
-</article>
-
-
-        <!-- Forest Park -->
-        <article class="glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition">
-          <img src="images/placeholder-forestpark.jpg" alt="Forest Park Portland" class="w-full h-64 object-cover" />
-          <div class="p-6 flex flex-col justify-between h-full">
-            <div>
-              <h3 class="text-2xl font-semibold mb-2 accent">Forest Park</h3>
-              <p class="text-gray-700 mb-4">Step into the mossy quiet of one of America’s largest urban forests — where every turn hums with green.</p>
-            </div>
-            <a href="#" class="main-btn text-center opacity-70 cursor-not-allowed">Coming Soon</a>
+    <!-- Main content with ads -->
+    <div class="flex flex-col lg:flex-row gap-10 mb-20">
+      <!-- Blog content -->
+      <div class="lg:w-2/3">
+        <div class="mb-12">
+          <h2 class="text-4xl font-semibold mb-10 text-shadow-mauve">Recent Chronicles</h2>
+          
+          <!-- Blog cards grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14">
+            <!-- Blog Card 1 -->
+            <article class="middle-earth-card blog-card p-6">
+              <div class="mb-4">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Ancient coastal cliffs" 
+                     class="w-full h-52 object-cover mb-5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="category-tag">Coastal Shores</span>
+                  <span class="text-rosy-mauve text-sm">Moon's Wane, 2025</span>
+                </div>
+                <h3 class="text-2xl font-semibold mb-4 text-shadow-mauve">Where Sea Meets Stone: The Cliffs of Forgotten Lore</h3>
+                <p class="text-dark-mauve mb-5">Exploring the rugged coastline where legends speak of sea-folk and shipwrecks lost to time, with stone arches that frame the setting sun.</p>
+                <a href="#" class="text-rosy-mauve font-medium hover:text-shadow-mauve transition-colors flex items-center">
+                  <span class="mr-2">Read the Chronicle</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+            
+            <!-- Blog Card 2 -->
+            <article class="middle-earth-card blog-card p-6">
+              <div class="mb-4">
+                <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Ancient mossy forest" 
+                     class="w-full h-52 object-cover mb-5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="category-tag">Ancient Groves</span>
+                  <span class="text-rosy-mauve text-sm">Spring Equinox, 2025</span>
+                </div>
+                <h3 class="text-2xl font-semibold mb-4 text-shadow-mauve">The Whispering Woods: Sentinels of a Bygone Age</h3>
+                <p class="text-dark-mauve mb-5">Walking among giants in Oregon's old-growth forests, where sunlight filters through emerald canopies and the air hums with ancient magic.</p>
+                <a href="#" class="text-rosy-mauve font-medium hover:text-shadow-mauve transition-colors flex items-center">
+                  <span class="mr-2">Enter the Grove</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
           </div>
-        </article>
+          
+          <!-- Horizontal ad space -->
+          <div class="ad-space rounded-md mb-14 p-10 text-center middle-earth-border">
+            <div class="relative z-10">
+              <div class="text-4xl mb-3 text-rosy-mauve/50"><i class="fas fa-gem"></i></div>
+              <p class="text-dark-mauve mb-2 text-lg font-cinzel">Artisan Advertiser</p>
+              <p class="text-rosy-mauve/70 text-sm">Master craftsmen of Middle Earth • 728x90</p>
+            </div>
+          </div>
+          
+          <!-- Featured blog card -->
+          <article class="middle-earth-card blog-card p-8 mb-14">
+            <div class="flex flex-col md:flex-row gap-8">
+              <div class="md:w-2/5">
+                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Mountain reflection in still lake" 
+                     class="w-full h-64 md:h-full object-cover">
+              </div>
+              <div class="md:w-3/5">
+                <div class="flex items-center justify-between mb-5">
+                  <span class="category-tag">Mountain Realms</span>
+                  <span class="text-rosy-mauve text-sm">Last Snowmelt, 2025</span>
+                </div>
+                <h3 class="text-3xl font-semibold mb-5 text-shadow-mauve">The Mirror Lakes: Where Peaks Touch Their Reflections</h3>
+                <p class="text-dark-mauve mb-6">High in the alpine reaches, discover lakes so still they perfectly duplicate the world above—a phenomenon spoken of in elvish poetry and dwarf mining songs alike.</p>
+                <a href="#" class="middle-earth-btn inline-block">Seek the Reflection</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-
-      <div class="text-center mt-6">
-        <a href="#" class="main-btn opacity-70 cursor-not-allowed">Full Magic Walks Collection — Coming Soon</a>
-      </div>
-    </section>
+      
+      <!-- Sidebar -->
+      <aside class="lg:w-1/3">
+        <!-- About section -->
+        <div class="middle-earth-card p-7 mb-10">
+          <h3 class="text-2xl font-semibold mb-6 text-shadow-mauve border-b pb-3 border-rosy-mauve/30">The Chronicler</h3>
+          <div class="flex items-start gap-5 mb-5">
+            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-rosy-mauve/40">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                   alt="Emily Cinder" 
+                   class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h4 class="font-semibold text-xl text-shadow-mauve mb-1">Emily Cinder</h4>
+              <p class="text-rosy-mauve text-sm">Keeper of Forgotten Trails</p>
+            </div>
+          </div>
+          <p class="text-dark-mauve">I wander Oregon's hidden realms to document landscapes that feel touched by another age—where mist hangs like memory and stone holds ancient stories.</p>
+        </div>
+        
+        <!-- Vertical ad space -->
+        <div class="ad-space rounded-md mb-10 p-8 text-center middle-earth-border h-80">
+          <div class="relative z-10">
+            <div class="text-3xl mb-3 text-rosy-mauve/50"><i class="fas fa-map"></i></div>
+            <p class="text-dark-mauve mb-2 text-lg font-cinzel">Cartographer's Guild</p>
+            <p class="text-rosy-mauve/70 text-sm">Maps of hidden realms • 300x600</p>
+          </div>
+        </div>
+        
+        <!-- Subscription form -->
+        <div class="middle-earth-card p-10 text-center">
+          <div class="elvish-divider mb-10"></div>
+          <h3 class="text-3xl font-semibold mb-5 text-shadow-mauve">Receive Scrolls from Distant Realms</h3>
+          <p class="text-dark-mauve mb-8">Monthly dispatches from Oregon's enchanted landscapes, sealed with wax and sent by raven.</p>
+          <form class="space-y-5">
+            <input type="email" placeholder="Your missive address" class="subscribe-input w-full rounded-sm">
+            <button type="submit" class="middle-earth-btn w-full">Subscribe to Chronicles</button>
+          </form>
+          <p class="text-rosy-mauve/70 text-sm mt-6">Your secrets are kept in the vault of trust.</p>
+          <div class="elvish-divider mt-10"></div>
+        </div>
+        
+        <!-- Small square ad space -->
+        <div class="ad-space rounded-md mt-10 p-8 text-center middle-earth-border h-56">
+          <div class="relative z-10">
+            <div class="text-2xl mb-3 text-rosy-mauve/50"><i class="fas fa-feather-alt"></i></div>
+            <p class="text-dark-mauve mb-2 font-cinzel">Scribe's Tools</p>
+            <p class="text-rosy-mauve/70 text-sm">Quills and parchments • 250x250</p>
+          </div>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <!-- BACK BUTTON -->
-  <div class="text-center mt-20">
-    <a href="index.html" class="main-btn">← Back to Home</a>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="mt-16 mb-8 text-sm text-gray-500 text-center">
-    © 2025 Glass Circuits Travel — Designed by Emily Cinder
+  <!-- Footer -->
+  <footer class="mt-auto py-10 px-4 border-t border-rosy-mauve/20">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-8 md:mb-0">
+          <p class="text-shadow-mauve font-cinzel font-semibold text-xl mb-3">Glass Circuits Travel</p>
+          <p class="text-rosy-mauve text-sm">© 2025 Emily Cinder • All wanderings reserved</p>
+        </div>
+        
+        <div class="flex gap-8 mb-8 md:mb-0">
+          <a href="#" class="social-icon"><i class="fab fa-instagram text-2xl"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-pinterest text-2xl"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter text-2xl"></i></a>
+          <a href="#" class="social-icon"><i class="fas fa-scroll text-2xl"></i></a>
+        </div>
+        
+        <div class="text-center">
+          <p class="text-rosy-mauve text-sm italic">"Not all those who wander are lost."</p>
+          <p class="text-rosy-mauve/70 text-xs mt-1">- J.R.R. Tolkien</p>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Middle Earth themed interactive elements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add hover effect to ad spaces
+      const adSpaces = document.querySelectorAll('.ad-space');
+      adSpaces.forEach(ad => {
+        ad.addEventListener('click', function() {
+          alert('This space is reserved for artisans and guilds of Middle Earth. In a real realm, this would link to their workshop.');
+        });
+      });
+      
+      // Subscription form with Middle Earth flair
+      const subscribeBtn = document.querySelector('button[type="submit"]');
+      if(subscribeBtn) {
+        subscribeBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const emailInput = document.querySelector('input[type="email"]');
+          if(emailInput.value) {
+            // Create a magical confirmation
+            const originalText = subscribeBtn.innerHTML;
+            subscribeBtn.innerHTML = '<i class="fas fa-feather-alt mr-2"></i> Raven Dispatched!';
+            subscribeBtn.style.background = 'linear-gradient(to bottom, var(--middle-earth-green), var(--earth-brown))';
+            subscribeBtn.style.borderColor = 'var(--middle-earth-green)';
+            
+            setTimeout(() => {
+              alert(`A raven has been dispatched to ${emailInput.value} with the latest chronicles. Watch the skies!`);
+              emailInput.value = '';
+              subscribeBtn.innerHTML = originalText;
+              subscribeBtn.style.background = 'linear-gradient(to bottom, var(--dark-mauve), var(--shadow-mauve))';
+              subscribeBtn.style.borderColor = 'var(--shadow-mauve)';
+            }, 800);
+          } else {
+            alert('A raven requires a destination! Please provide your missive address.');
+          }
+        });
+      }
+      
+      // Add subtle animation to decorative runestones
+      const runestones = document.querySelectorAll('.runestone');
+      runestones.forEach((stone, index) => {
+        // Random slight movement on page load
+        setTimeout(() => {
+          stone.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+        }, index * 300);
+      });
+    });
+  </script>
 </body>
 </html>
