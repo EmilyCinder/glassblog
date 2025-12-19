@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore Oregon’s most enchanting waterfall hikes — Multnomah Falls, Wahkeena Falls, Silver Falls, and more hidden gems across the Columbia River Gorge." />
+  <meta name="description" content="Explore Oregon's most enchanting waterfall hikes — Multnomah Falls, Wahkeena Falls, Silver Falls, and more hidden gems across the Columbia River Gorge." />
   <meta name="keywords" content="Waterfall hikes, Oregon waterfalls, Multnomah Falls, Columbia River Gorge, Glass Circuits Travel, PNW hiking blog, nature photography" />
   <meta name="author" content="Emily Cinder" />
   <title>Waterfall Hikes in Oregon | Glass Circuits Travel</title>
 
   <!-- Tailwind + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -30,96 +31,577 @@
   </script>
 
   <style>
-    body {
+    :root {
+      --aged-paper: #f5f1e8;
+      --dusty-mauve: #b39e9d;
+      --old-pink: #d4b4b4;
+      --vintage-rose: #c9a8a9;
+      --shadow-mauve: #8a7679;
+      --sepia-brown: #8b7d6b;
+    }
+    
+    body { 
+      font-family: 'Crimson Pro', serif; 
+      background-color: var(--aged-paper); 
+      color: var(--shadow-mauve); 
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4 {
       font-family: 'EB Garamond', serif;
-      background-color: #fdfdfd;
-      color: #3a2e35;
+      font-weight: 600;
+      color: var(--shadow-mauve);
     }
-    .glass {
-      background: rgba(229,192,198,0.25);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 1.5rem;
-    }
-    .accent {
-      color: #bfa0a5;
-    }
-    .main-btn {
-      background-color: #bfa0a5;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+    
+    .vintage-card {
+      background: rgba(245, 241, 232, 0.95);
+      border: 1px solid var(--dusty-mauve);
+      box-shadow: 0 4px 12px rgba(139, 125, 107, 0.1);
       transition: all 0.3s ease;
     }
-    .main-btn:hover {
-      background-color: #d3b8bb;
-      transform: scale(1.05);
+    
+    .vintage-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(139, 125, 107, 0.15);
+      border-color: var(--old-pink);
     }
-    nav a {
-      transition: color 0.3s ease;
+    
+    .vintage-btn {
+      background: var(--shadow-mauve);
+      color: var(--aged-paper);
+      padding: 0.75rem 1.75rem;
+      border: 1px solid var(--sepia-brown);
+      font-family: 'EB Garamond', serif;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      font-size: 1rem;
     }
-    nav a:hover {
-      color: #bfa0a5;
+    
+    .vintage-btn:hover {
+      background: var(--old-pink);
+      border-color: var(--old-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 180, 180, 0.2);
+    }
+    
+    .nav-link {
+      position: relative;
+      color: var(--shadow-mauve);
+      font-family: 'EB Garamond', serif;
+      font-weight: 500;
+    }
+    
+    .nav-link:hover {
+      color: var(--old-pink);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--old-pink);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .category-tag {
+      background-color: rgba(212, 180, 180, 0.15);
+      color: var(--shadow-mauve);
+      border: 1px solid rgba(212, 180, 180, 0.4);
+      padding: 0.25rem 0.875rem;
+      font-size: 0.75rem;
+      font-family: 'EB Garamond', serif;
+      font-weight: 500;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    
+    .page-header {
+      border-bottom: 2px solid var(--old-pink);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--old-pink), transparent);
+      margin: 3rem auto;
+      width: 80%;
+    }
+    
+    .photo-caption {
+      font-size: 0.9rem;
+      color: var(--dusty-mauve);
+      margin-top: 0.75rem;
+      text-align: center;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .text-dusty-mauve { color: var(--dusty-mauve); }
+    .text-old-pink { color: var(--old-pink); }
+    .text-shadow-mauve { color: var(--shadow-mauve); }
+    .bg-aged-paper { background-color: var(--aged-paper); }
+    
+    .full-click-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+    }
+    
+    .card-content {
+      position: relative;
+      z-index: 20;
+    }
+    
+    .blog-post:hover h2 {
+      text-decoration: underline;
+      text-decoration-color: var(--old-pink);
+    }
+    
+    .intro-text {
+      font-size: 1.2rem;
+      color: var(--shadow-mauve);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .ad-space {
+      background: rgba(245, 241, 232, 0.9);
+      border: 1px solid var(--sepia-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--shadow-mauve);
+      transition: all 0.3s ease;
+      min-height: 120px;
+      border-radius: 8px;
+    }
+    
+    .ad-space:hover {
+      border: 1px solid var(--old-pink);
+      background: rgba(245, 241, 232, 0.95);
+    }
+    
+    /* Compact sidebar styling to match other pages */
+    .sidebar-widget {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0.75rem;
+    }
+    
+    .widget-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--shadow-mauve);
+      font-family: 'EB Garamond', serif;
+    }
+    
+    .related-post {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(179, 158, 157, 0.2);
+    }
+    
+    .related-post:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .related-post img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    .related-post h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+    
+    .related-post p {
+      font-size: 0.8rem;
+      color: var(--dusty-mauve);
+      line-height: 1.4;
+    }
+    
+    @media (max-width: 768px) {
+      .intro-text {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+      }
+      
+      .page-header {
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .related-post img {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
 
-<body class="flex flex-col items-center">
+<body class="min-h-screen bg-aged-paper">
 
+  <!-- HEADER MATCHING OTHER PAGES -->
+  <header class="w-full flex flex-col items-center mt-8 md:mt-10">
+    <div class="text-center mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2 text-shadow-mauve">Glass Circuits Travel</h1>
+      <p class="italic text-old-pink text-lg md:text-xl">Ethereal explorations through Oregon & beyond</p>
+    </div>
 
+    <nav class="flex flex-wrap justify-center gap-6 md:gap-8 mb-10">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="destinations.html" class="nav-link">Destinations</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Spacer for Fixed Nav -->
-  <div class="h-20"></div>
-
-   <header class="w-full flex flex-col items-center mt-10">
-  <h1 class="text-4xl font-bold accent mb-2">Glass Circuits Travel</h1>
-  <p class="italic text-gray-600 mb-6">Ethereal explorations through Oregon & beyond</p>
-
-  <nav class="flex gap-6 mb-10">
-    <a href="index.html" class="hover:text-[#BFA0A5]">Home</a>
-    <a href="about.html" class="hover:text-[#BFA0A5]">About</a>
-    <a href="blog.html" class="hover:text-[#BFA0A5]">Blog</a>
-    <a href="contact.html" class="hover:text-[#BFA0A5]">Contact</a>
-  </nav>
-</header>
-
-
-  <!-- MAIN CONTENT -->
-  <main class="w-full max-w-6xl px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-   <!-- MULTNOMAH FALLS -->
-<article class="relative glass rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition group">
-  <!-- Full clickable overlay -->
-  <a href="multnomah.html" class="absolute inset-0 z-10"></a>
-
-  <!-- Image -->
-  <img src="images/placeholder-multnomah.jpg" alt="Multnomah Falls Oregon" class="w-full h-64 object-cover" />
-
-  <!-- Content -->
-  <div class="p-6 flex flex-col justify-between h-full relative z-20">
-    <div>
-      <h2 class="text-2xl font-semibold mb-2 accent group-hover:underline">Multnomah Falls</h2>
-      <p class="text-gray-700 mb-4">
-        Oregon’s most iconic two-tiered waterfall — a symphony of mist, stone, and light in the Columbia River Gorge.
+  <!-- MAIN CONTENT AREA -->
+  <div class="max-w-6xl mx-auto px-4 py-4">
+    
+    <!-- FEATURED ARTICLE SECTION (Matches blog.html) -->
+    <section class="mb-12">
+      <div class="vintage-card overflow-hidden">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+               alt="Misty waterfall in Oregon forest" 
+               class="w-full h-64 md:h-96 object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6 md:p-10">
+            <div class="max-w-3xl">
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <span class="bg-aged-paper/20 backdrop-blur-sm text-aged-paper px-3 py-1 rounded-full text-sm border border-aged-paper/30">Waterfalls</span>
+                <span class="text-aged-paper/90 text-sm">June 15, 2025</span>
+              </div>
+              <h2 class="text-2xl md:text-4xl text-aged-paper font-semibold mb-4 leading-tight">The Ethereal Beauty of Oregon's Waterfall Corridor</h2>
+              <p class="text-aged-paper/80 mb-6 max-w-2xl text-lg">Discover the misty trails and breathtaking cascades along the Historic Columbia River Highway.</p>
+              <a href="multnomah.html" class="bg-aged-paper text-shadow-mauve hover:bg-aged-paper/90 hover:text-shadow-mauve px-6 py-3 rounded-lg font-medium inline-block transition-all duration-300 border border-aged-paper/20">Explore Now →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Waterfall Hikes in Oregon</h1>
+      <p class="text-dusty-mauve text-lg">Discover the misty, magical cascades of the Pacific Northwest</p>
+    </header>
+    
+    <!-- Page Introduction -->
+    <div class="intro-text">
+      <p>
+        Oregon's waterfall trails are pathways to another world — where mist dances through ancient canyons, 
+        water carves stories into basalt, and light filters through evergreen cathedrals. From the iconic 
+        Multnomah Falls to hidden gems in the Columbia River Gorge, these hikes offer more than scenery; 
+        they offer moments of pure, ethereal wonder.
       </p>
     </div>
-    <span class="main-btn text-center inline-block">Read Full Guide →</span>
+    
+    <!-- Ad Space -->
+    <div class="ad-space rounded-lg mb-10 p-6 text-center">
+      <div class="text-dusty-mauve">
+        <p class="mb-2">Advertisement Space</p>
+        <p class="text-sm">728x90</p>
+      </div>
+    </div>
+    
+    <!-- Two-Column Layout -->
+    <div class="flex flex-col lg:flex-row gap-8">
+      
+      <!-- MAIN CONTENT (2/3 width) -->
+      <main class="lg:w-2/3">
+        
+        <!-- Waterfall Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          
+          <!-- MULTNOMAH FALLS -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="multnomah.html" class="full-click-overlay"></a>
+            <img src="images/Mfalls.jpg" alt="Multnomah Falls Oregon" class="w-full h-64 object-cover" />
+            <div class="p-6 flex flex-col justify-between h-full card-content">
+              <div>
+                <span class="category-tag">Columbia River Gorge</span>
+                <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Multnomah Falls</h2>
+                <p class="text-shadow-mauve mb-4">
+                  Oregon's most iconic two-tiered waterfall — a symphony of mist, stone, and light in the Columbia River Gorge.
+                </p>
+              </div>
+              <span class="vintage-btn text-center">Read Full Guide →</span>
+            </div>
+          </article>
+          
+          <!-- WAHKEENA FALLS -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="#" class="full-click-overlay"></a>
+            <img src="https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wahkeena Falls" class="w-full h-64 object-cover" />
+            <div class="p-6 flex flex-col justify-between h-full card-content">
+              <div>
+                <span class="category-tag">Columbia River Gorge</span>
+                <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Wahkeena Falls</h2>
+                <p class="text-shadow-mauve mb-4">
+                  A delicate, tiered cascade just steps from Multnomah Falls. Follow the fairy-tale trail through mossy canyons.
+                </p>
+              </div>
+              <span class="vintage-btn text-center opacity-70 cursor-not-allowed">Coming Soon</span>
+            </div>
+          </article>
+          
+          <!-- LATOURELL FALLS -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="#" class="full-click-overlay"></a>
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Latourell Falls" class="w-full h-64 object-cover" />
+            <div class="p-6 flex flex-col justify-between h-full card-content">
+              <div>
+                <span class="category-tag">Columbia River Gorge</span>
+                <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Latourell Falls</h2>
+                <p class="text-shadow-mauve mb-4">
+                  A dramatic plunge waterfall with striking hexagonal basalt columns. Perfect for photography.
+                </p>
+              </div>
+              <span class="vintage-btn text-center opacity-70 cursor-not-allowed">Coming Soon</span>
+            </div>
+          </article>
+          
+          <!-- SILVER FALLS STATE PARK -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="#" class="full-click-overlay"></a>
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Silver Falls State Park" class="w-full h-64 object-cover" />
+            <div class="p-6 flex flex-col justify-between h-full card-content">
+              <div>
+                <span class="category-tag">Willamette Valley</span>
+                <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Silver Falls State Park</h2>
+                <p class="text-shadow-mauve mb-4">
+                  The "Trail of Ten Falls" where you can walk behind four magnificent waterfalls.
+                </p>
+              </div>
+              <span class="vintage-btn text-center opacity-70 cursor-not-allowed">Coming Soon</span>
+            </div>
+          </article>
+          
+          <!-- HORSETAIL FALLS -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="#" class="full-click-overlay"></a>
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Horsetail Falls" class="w-full h-64 object-cover" />
+            <div class="p-6 flex flex-col justify-between h-full card-content">
+              <div>
+                <span class="category-tag">Columbia River Gorge</span>
+                <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Horsetail Falls</h2>
+                <p class="text-shadow-mauve mb-4">
+                  Visible from the highway, this waterfall glows golden in afternoon light.
+                </p>
+              </div>
+              <span class="vintage-btn text-center opacity-70 cursor-not-allowed">Coming Soon</span>
+            </div>
+          </article>
+          
+          <!-- TOKETEE FALLS -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="#" class="full-click-overlay"></a>
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Toketee Falls" class="w-full h-64 object-cover" />
+            <div class="p-6 flex flex-col justify-between h-full card-content">
+              <div>
+                <span class="category-tag">Umpqua National Forest</span>
+                <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Toketee Falls</h2>
+                <p class="text-shadow-mauve mb-4">
+                  A stunning two-tiered waterfall framed by columnar basalt formations.
+                </p>
+              </div>
+              <span class="vintage-btn text-center opacity-70 cursor-not-allowed">Coming Soon</span>
+            </div>
+          </article>
+          
+        </div>
+        
+        <!-- In-Content Ad Space -->
+        <div class="ad-space rounded-lg my-10 p-8 text-center">
+          <div class="text-dusty-mauve">
+            <p class="mb-2">Advertisement</p>
+            <p class="text-sm">300x250</p>
+          </div>
+        </div>
+        
+        <!-- Waterfall Photography Tips -->
+        <section class="vintage-card p-8 rounded-xl mb-10">
+          <h2 class="text-2xl font-bold mb-6 text-shadow-mauve text-center">Waterfall Photography Tips</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-semibold text-lg mb-3 text-shadow-mauve">Best Times to Shoot</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-old-pink mr-2">•</span>
+                  <span><strong>Golden Hour:</strong> Warm, soft light for magical atmosphere</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-old-pink mr-2">•</span>
+                  <span><strong>Overcast Days:</strong> Even lighting with reduced shadows</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-old-pink mr-2">•</span>
+                  <span><strong>Spring Runoff:</strong> Maximum water flow for dramatic shots</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg mb-3 text-shadow-mauve">Essential Gear</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-old-pink mr-2">•</span>
+                  <span><strong>Tripod:</strong> Essential for silky water long exposures</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-old-pink mr-2">•</span>
+                  <span><strong>Polarizing Filter:</strong> Reduces glare on wet surfaces</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-old-pink mr-2">•</span>
+                  <span><strong>Rain Cover:</strong> Protect your gear from constant mist</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        
+      </main>
+      
+      <!-- SIDEBAR (1/3 width) - COMPACT DESIGN -->
+      <aside class="lg:w-1/3">
+        
+        <!-- About Author Widget - Compact -->
+        <div class="vintage-card p-6 mb-8">
+          <h3 class="widget-title mb-4">About the Author</h3>
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-16 h-16 rounded-full overflow-hidden border border-dusty-mauve">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                   alt="Emily Cinder" 
+                   class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h4 class="font-semibold text-shadow-mauve text-lg">Emily Cinder</h4>
+              <p class="text-dusty-mauve text-sm">Writer & Photographer</p>
+            </div>
+          </div>
+          <p class="text-shadow-mauve text-sm mb-4">Exploring Oregon's hidden landscapes and sharing ethereal travel experiences.</p>
+          <a href="about.html" class="vintage-btn w-full text-center text-sm py-2">Read My Story</a>
+        </div>
+        
+        <!-- Subscribe Widget - Compact -->
+        <div class="vintage-card p-6 mb-8">
+          <h3 class="widget-title mb-4">Subscribe</h3>
+          <p class="text-shadow-mauve text-sm mb-4">Get updates on new waterfall guides and photography tips.</p>
+          <form class="space-y-3">
+            <input type="email" placeholder="Your email" class="w-full px-4 py-2 border border-dusty-mauve/50 bg-white/50 rounded text-sm focus:outline-none focus:border-old-pink">
+            <button type="submit" class="vintage-btn w-full text-sm py-2">Subscribe</button>
+          </form>
+        </div>
+        
+        <!-- Categories Widget - Compact -->
+        <div class="vintage-card p-6 mb-8">
+          <h3 class="widget-title mb-4">Explore Categories</h3>
+          <div class="flex flex-wrap gap-2">
+            <a href="waterfalls.html" class="px-3 py-1 bg-old-pink/20 text-shadow-mauve rounded-full text-xs">Waterfalls</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-xs hover:bg-old-pink/20">Magic Walks</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-xs hover:bg-old-pink/20">Coastal</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-xs hover:bg-old-pink/20">Forests</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-xs hover:bg-old-pink/20">Mountains</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-xs hover:bg-old-pink/20">Photography</a>
+          </div>
+        </div>
+        
+        <!-- Related Posts Widget - Compact -->
+        <div class="vintage-card p-6 mb-8">
+          <h3 class="widget-title mb-4">Related Posts</h3>
+          <div class="space-y-4">
+            <div class="related-post">
+              <img src="images/mt tabor-20251021T163458Z-1-001/mt tabor/tabor14.jpg" alt="Mount Tabor">
+              <div>
+                <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="mttabor.html">Mount Tabor Park Guide</a></h4>
+                <p class="text-dusty-mauve">Portland's volcanic sanctuary</p>
+              </div>
+            </div>
+            <div class="related-post">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Forest Park">
+              <div>
+                <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="#">Forest Park Exploration</a></h4>
+                <p class="text-dusty-mauve">Portland's urban wilderness</p>
+              </div>
+            </div>
+            <div class="related-post">
+              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Oregon Coast">
+              <div>
+                <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="#">Oregon Coast Road Trip</a></h4>
+                <p class="text-dusty-mauve">Pacific coastline wonders</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Ad Space - Compact -->
+        <div class="vintage-card p-8 text-center">
+          <div class="text-dusty-mauve">
+            <p class="mb-2">Advertisement</p>
+            <p class="text-sm">Sponsored Content</p>
+            <p class="text-xs mt-2">300x250</p>
+          </div>
+        </div>
+        
+      </aside>
+      
+    </div>
+    
+    <!-- Back to Blog Button -->
+    <div class="text-center mt-12 mb-8">
+      <a href="blog.html" class="vintage-btn">← Back to Blog</a>
+    </div>
+    
   </div>
-</article>
 
- 
-  
-
-  </main>
-
-  <!-- BACK BUTTON -->
-  <div class="text-center mt-16 mb-10">
-    <a href="index.html" class="main-btn">← Back to Home</a>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="mt-10 mb-8 text-sm text-gray-500 text-center">
-    © 2025 Glass Circuits Travel — Designed by Emily Cinder
+  <!-- FOOTER MATCHING OTHER PAGES -->
+  <footer class="mt-12 mb-8 text-sm text-dusty-mauve text-center px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
+      <div class="mb-4 md:mb-0">
+        <p class="text-shadow-mauve font-semibold mb-1">Glass Circuits Travel</p>
+        <p>© 2025 Emily Cinder</p>
+      </div>
+      
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-twitter"></i></a>
+      </div>
+      
+      <div>
+        <p class="italic">"Not all those who wander are lost."</p>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>

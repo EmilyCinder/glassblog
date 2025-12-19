@@ -9,16 +9,17 @@
 
   <title>Multnomah Falls Travel Guide | Glass Circuits Travel</title>
 
-  <!-- Tailwind + Font -->
+  <!-- Tailwind + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- SEO Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Multnomah Falls: Oregon’s Crown Jewel of Waterfalls",
+    "headline": "Multnomah Falls: Oregon's Crown Jewel of Waterfalls",
     "image": "https://emilycinder.github.io/glassblog/images/Mfalls.jpg",
     "author": { "@type": "Person", "name": "Emily Cinder" },
     "publisher": { "@type": "Organization", "name": "Glass Circuits Travel" },
@@ -29,143 +30,551 @@
   </script>
 
   <style>
-    body {
+    :root {
+      --aged-paper: #f5f1e8;
+      --dusty-mauve: #b39e9d;
+      --old-pink: #d4b4b4;
+      --vintage-rose: #c9a8a9;
+      --shadow-mauve: #8a7679;
+      --sepia-brown: #8b7d6b;
+    }
+    
+    body { 
+      font-family: 'Crimson Pro', serif; 
+      background-color: var(--aged-paper); 
+      color: var(--shadow-mauve); 
+      line-height: 1.7;
+    }
+    
+    h1, h2, h3, h4 {
       font-family: 'EB Garamond', serif;
-      background-color: #fdfdfd;
-      color: #3a2e35;
+      font-weight: 600;
+      color: var(--shadow-mauve);
     }
-    .glass {
-      background: rgba(229,192,198,0.25);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 1.5rem;
+    
+    .vintage-card {
+      background: rgba(245, 241, 232, 0.95);
+      border: 1px solid var(--dusty-mauve);
+      box-shadow: 0 4px 12px rgba(139, 125, 107, 0.1);
     }
-    .accent {
-      color: #bfa0a5;
-    }
-    .main-btn {
-      background-color: #bfa0a5;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+    
+    .vintage-btn {
+      background: var(--shadow-mauve);
+      color: var(--aged-paper);
+      padding: 0.75rem 1.75rem;
+      border: 1px solid var(--sepia-brown);
+      font-family: 'EB Garamond', serif;
       transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      font-size: 1rem;
     }
-    .main-btn:hover {
-      background-color: #d3b8bb;
-      transform: scale(1.05);
+    
+    .vintage-btn:hover {
+      background: var(--old-pink);
+      border-color: var(--old-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 180, 180, 0.2);
+    }
+    
+    .nav-link {
+      position: relative;
+      color: var(--shadow-mauve);
+      font-family: 'EB Garamond', serif;
+      font-weight: 500;
+    }
+    
+    .nav-link:hover {
+      color: var(--old-pink);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--old-pink);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .article-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--old-pink), transparent);
+      margin: 3rem auto;
+      width: 80%;
+    }
+    
+    .photo-caption {
+      font-size: 0.9rem;
+      color: var(--dusty-mauve);
+      margin-top: 0.75rem;
+      text-align: center;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .text-dusty-mauve { color: var(--dusty-mauve); }
+    .text-old-pink { color: var(--old-pink); }
+    .text-shadow-mauve { color: var(--shadow-mauve); }
+    .bg-aged-paper { background-color: var(--aged-paper); }
+    
+    strong {
+      color: var(--shadow-mauve);
+      font-weight: 600;
+    }
+    
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+    
+    .article-meta {
+      color: var(--dusty-mauve);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-header {
+      border-bottom: 2px solid var(--old-pink);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .pull-quote {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--shadow-mauve);
+      border-left: 3px solid var(--old-pink);
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+      line-height: 1.5;
+    }
+    
+    .sidebar-widget {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .widget-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--dusty-mauve);
+    }
+    
+    .related-post {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(179, 158, 157, 0.2);
+    }
+    
+    .related-post img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    .related-post h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .related-post p {
+      font-size: 0.85rem;
+      color: var(--dusty-mauve);
+    }
+    
+    @media (max-width: 768px) {
+      .article-divider {
+        margin: 2rem auto;
+      }
+      
+      .pull-quote {
+        font-size: 1.25rem;
+        margin: 1.5rem 0;
+      }
+    }
+    
+    /* Professional blog typography */
+    .article-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .article-content h2 {
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1.25rem 0;
+    }
+    
+    .article-content h3 {
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem 0;
+      color: var(--dusty-mauve);
+    }
+    
+    .image-gallery {
+      margin: 2rem 0;
+    }
+    
+    .tip-box {
+      background: rgba(212, 180, 180, 0.1);
+      border-left: 3px solid var(--old-pink);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .tip-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--shadow-mauve);
+    }
+    
+    blockquote {
+      font-style: italic;
+      color: var(--shadow-mauve);
+      border-left: 3px solid var(--old-pink);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
     }
   </style>
 </head>
 
-<body class="flex flex-col items-center">
+<body class="min-h-screen bg-aged-paper">
 
-  <!-- Header -->
-  <header class="w-full flex flex-col items-center mt-10">
-  <h1 class="text-4xl font-bold accent mb-2">Glass Circuits Travel</h1>
-  <p class="italic text-gray-600 mb-6">Ethereal explorations through Oregon & beyond</p>
+  <!-- HEADER MATCHING OTHER PAGES -->
+  <header class="w-full flex flex-col items-center mt-8 md:mt-10">
+    <div class="text-center mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2 text-shadow-mauve">Glass Circuits Travel</h1>
+      <p class="italic text-old-pink text-lg md:text-xl">Ethereal explorations through Oregon & beyond</p>
+    </div>
 
-  <nav class="flex gap-6 mb-10">
-    <a href="index.html" class="hover:text-[#BFA0A5]">Home</a>
-    <a href="about.html" class="hover:text-[#BFA0A5]">About</a>
-    <a href="blog.html" class="hover:text-[#BFA0A5]">Blog</a>
-    <a href="contact.html" class="hover:text-[#BFA0A5]">Contact</a>
-  </nav>
-</header>
+    <nav class="flex flex-wrap justify-center gap-6 md:gap-8 mb-10">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="destinations.html" class="nav-link">Destinations</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
+  <!-- MAIN CONTENT AREA -->
+  <div class="max-w-6xl mx-auto px-4 py-4">
+    <div class="flex flex-col lg:flex-row gap-8">
+      
+      <!-- MAIN ARTICLE CONTENT (2/3 width) -->
+      <main class="lg:w-2/3">
+        
+        <!-- Article Header -->
+        <header class="article-header">
+          <div class="article-meta flex items-center gap-4 mb-4">
+            <span class="category-tag bg-old-pink/10 text-shadow-mauve px-3 py-1 rounded-full text-sm">Waterfall Guides</span>
+            <span class="text-dusty-mauve">October 30, 2025</span>
+            <span class="text-dusty-mauve">• 10 min read</span>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Multnomah Falls: Oregon's Crown Jewel of Waterfalls</h1>
+          
+          <div class="flex items-center gap-4">
+            
+            <div>
+              <p class="font-semibold text-shadow-mauve">Emily Cinder</p>
+              <p class="text-dusty-mauve text-sm">Writer & Photographer</p>
+            </div>
+          </div>
+        </header>
+        
+        <!-- Hero Image -->
+        <div class="mb-10">
+          <img src="images/Mfalls.jpg" 
+               alt="Multnomah Falls cascading through the Columbia River Gorge" 
+               class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg">
+          <p class="photo-caption mt-3">Multnomah Falls stands 620 feet tall as Oregon's most iconic waterfall | Photo by Emily Cinder</p>
+        </div>
+        
+        <!-- Article Introduction -->
+        <div class="article-content">
+          <p class="lead text-xl text-shadow-mauve mb-6">
+            Multnomah Falls is a two-tiered cascade soaring 620 feet above the Columbia River Gorge, making it Oregon's tallest and most beloved waterfall. Draped in moss, mist, and legend, it's one of the Pacific Northwest's most photographed locations — and for good reason.
+          </p>
+          
+          <p>
+            Every season unveils a different form of magic here, from icy winter veils to lush emerald spring canopies. The falls are part of the <strong>Columbia River Gorge National Scenic Area</strong>, a region carved by ancient floods and volcanic activity, now wrapped in misty forests and timeless rock faces.
+          </p>
+          
+          <div class="pull-quote">
+            Visiting Multnomah isn't just about seeing a waterfall — it's about feeling the quiet awe that settles in the canyon air as water crashes into stone.
+          </div>
+          
+          <div class="article-divider"></div>
+          
+          <!-- Gallery Section -->
+          <section class="image-gallery">
+            <h2 class="text-2xl font-bold mb-6">Gallery Moments</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <figure>
+                <img src="images/Mfalls.jpg" 
+                     alt="Multnomah Falls from the base viewpoint" 
+                     class="w-full h-64 object-cover rounded-lg shadow-md">
+                <figcaption class="photo-caption">The iconic view from the base lodge</figcaption>
+              </figure>
+              <figure>
+                <img src="images/m03.jpg" 
+                     alt="Benson Bridge at Multnomah Falls" 
+                     class="w-full h-64 object-cover rounded-lg shadow-md">
+                <figcaption class="photo-caption">Historic Benson Bridge suspended between tiers</figcaption>
+              </figure>
+              <figure>
+                <img src="images/05.jpg" 
+                     alt="Trail through the Columbia River Gorge" 
+                     class="w-full h-64 object-cover rounded-lg shadow-md">
+                <figcaption class="photo-caption">Mossy trails surrounding the waterfall</figcaption>
+              </figure>
+            </div>
+          </section>
+          
+          <div class="article-divider"></div>
+          
+          <!-- Directions Section -->
+          <section>
+            <h2>Getting There</h2>
+            <p>
+              Multnomah Falls lies roughly 30 miles east of Portland along Interstate 84. Exit 31 leads directly into the parking area, which fills quickly on weekends and holidays. Early morning is ideal for parking, solitude, and photography.
+            </p>
+            <p>
+              Visitors can reach the viewing platform in minutes — a paved walkway leads from the base lodge up to the lower falls overlook. For a closer view, continue to the <strong>Benson Bridge</strong>, the iconic arch suspended between tiers of water. The bridge view is often wrapped in gentle mist, offering a near-mythical experience, especially when sunlight filters through.
+            </p>
+          </section>
+          
+          <div class="article-divider"></div>
+          
+          <!-- Hike Section -->
+          <section>
+            <h2>The Hike to the Summit</h2>
+            <p>
+              The trail to the top of Multnomah Falls climbs approximately 1.2 miles, winding through switchbacks carved into basalt cliffs. Though steep in places, the path is well-maintained and rewards you with sweeping views of the Columbia River Gorge from above the falls. Along the way, moss-draped maples and rushing side-streams accompany your ascent.
+            </p>
+            
+            <blockquote>
+              "Standing at the overlook, you can feel the rhythm of the falls — ancient, steady, and alive. It's less a sound and more a heartbeat that echoes through stone."
+            </blockquote>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <figure>
+                <img src="images/m02.jpg" 
+                     alt="View from the top of Multnomah Falls" 
+                     class="w-full h-64 object-cover rounded-lg shadow-md">
+                <figcaption class="photo-caption">Panoramic view from the summit trail</figcaption>
+              </figure>
+              <figure>
+                <img src="images/04.jpg" 
+                     alt="Trail to the top of Multnomah Falls" 
+                     class="w-full h-64 object-cover rounded-lg shadow-md">
+                <figcaption class="photo-caption">The winding path through ancient forest</figcaption>
+              </figure>
+            </div>
+          </section>
+          
+          <div class="article-divider"></div>
+          
+          <!-- Photography Tips -->
+          <section>
+            <h2>Photography Tips</h2>
+            <div class="tip-box">
+              <div class="tip-title">Capturing the Essence of Multnomah Falls</div>
+              <ul class="mt-3">
+                <li><strong>Arrive early</strong> — morning light softens the scene and mists dance through the canyon.</li>
+                <li><strong>Bring a tripod</strong> for silky long exposures that capture the waterfall's dreamlike motion.</li>
+                <li><strong>Visit year-round</strong> — winter brings icy cascades; summer reveals lush greens; autumn offers warm tones and soft light.</li>
+                <li><strong>Experiment with focal length</strong> — wide shots capture grandeur, while tighter frames isolate textures and reflections.</li>
+              </ul>
+            </div>
+          </section>
+          
+          <div class="article-divider"></div>
+          
+          <!-- Nearby Attractions -->
+          <section>
+            <h2>Nearby Waterfalls & Hidden Spots</h2>
+            <p>
+              Within minutes of Multnomah Falls are equally enchanting destinations:
+            </p>
+            <ul>
+              <li><strong>Wahkeena Falls:</strong> A delicate, tiered cascade reachable via a short hike from the same parking area.</li>
+              <li><strong>Latourell Falls:</strong> A dramatic plunge with vivid basalt columns — ideal for moody photography.</li>
+              <li><strong>Horsetail Falls:</strong> Visible from the highway, this smaller yet powerful waterfall glows in afternoon sun.</li>
+            </ul>
+            <p>Each trail carries its own rhythm — together they form a gallery of Oregon's elemental beauty.</p>
+          </section>
+          
+          <div class="article-divider"></div>
+          
+          <!-- When to Visit -->
+          <section>
+            <h2>Best Time to Visit</h2>
+            <p><strong>Spring</strong> brings peak water flow and lush green canopies. <strong>Summer</strong> offers accessible trails and clear skies. <strong>Autumn</strong> turns the gorge gold and rose, while <strong>winter</strong> wraps the cliffs in ice, creating surreal crystalline patterns.</p>
+            <p>No matter the season, the atmosphere remains unmistakably ethereal — where light, water, and stone weave together like circuitry carved by time itself.</p>
+          </section>
+          
+          <div class="article-divider"></div>
+          
+          <!-- Closing Thoughts -->
+          <section class="vintage-card p-8 rounded-xl mt-8">
+            <h3 class="text-2xl font-bold mb-4 text-center">Travel Notes</h3>
+            <p class="text-center mb-6">
+              Before you go, check weather conditions and bring sturdy shoes — the trail can be slippery in mist. The nearby Multnomah Falls Lodge offers restrooms, snacks, and a warm fireplace to end your visit.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="waterfalls.html" class="vintage-btn">← Back to Waterfalls</a>
+              <a href="blog.html" class="vintage-btn">All Blog Posts →</a>
+            </div>
+          </section>
+        </div>
+        
+        <!-- Article Footer -->
+        <footer class="mt-12 pt-8 border-t border-dusty-mauve/30">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 rounded-full overflow-hidden border border-dusty-mauve/30">
+                <img src="images/homework crop about me.png" 
+                     alt="Emily Cinder" 
+                     class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="font-bold text-shadow-mauve">Emily Cinder</p>
+                <p class="text-dusty-mauve">Writer, photographer, and eternal wanderer exploring Oregon's hidden landscapes.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <a href="#" class="text-dusty-mauve hover:text-old-pink text-xl"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-dusty-mauve hover:text-old-pink text-xl"><i class="fab fa-pinterest"></i></a>
+              <a href="#" class="text-dusty-mauve hover:text-old-pink text-xl"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </footer>
+        
+      </main>
+      
+      <!-- SIDEBAR (1/3 width) -->
+      <aside class="lg:w-1/3">
+        
+        <!-- About Author Widget -->
+        <div class="vintage-card sidebar-widget rounded-lg mb-8">
+          <h3 class="widget-title">About the Author</h3>
+          <div class="flex flex-col items-center text-center">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-dusty-mauve/30 mb-4">
+              <img src="images/homework crop about me.png" 
+                   alt="Emily Cinder" 
+                   class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-bold text-lg text-shadow-mauve mb-2">Emily Cinder</h4>
+            <p class="text-dusty-mauve mb-4">Writer & Photographer exploring the ethereal landscapes of the Pacific Northwest.</p>
+            <a href="about.html" class="vintage-btn w-full">Read My Story</a>
+          </div>
+        </div>
+        
+        <!-- Subscribe Widget -->
+        <div class="vintage-card sidebar-widget rounded-lg mb-8">
+          <h3 class="widget-title">Subscribe to the Blog</h3>
+          <p class="text-dusty-mauve mb-4">Get updates on new posts, photography tips, and hidden PNW destinations.</p>
+          <form class="space-y-3">
+            <input type="email" placeholder="Your email address" class="w-full px-4 py-3 border border-dusty-mauve/50 bg-white/50 rounded focus:outline-none focus:border-old-pink">
+            <button type="submit" class="vintage-btn w-full">Subscribe</button>
+          </form>
+          <p class="text-dusty-mauve text-sm mt-3 italic">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+        
+        <!-- Related Posts Widget -->
+        <div class="vintage-card sidebar-widget rounded-lg mb-8">
+          <h3 class="widget-title">Related Posts</h3>
+          <div class="space-y-4">
+            <div class="related-post">
+              <img src="images/mt tabor-20251021T163458Z-1-001/mt tabor/tabor14.jpg" alt="Mount Tabor">
+              <div>
+                <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="mttabor.html">Mount Tabor Park Guide</a></h4>
+                <p class="text-dusty-mauve text-sm">Portland's volcanic sanctuary</p>
+              </div>
+            </div>
+            <div class="related-post">
+              <img src="images/forestpark.jpg" alt="Forest Park">
+              <div>
+                <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="#">Forest Park Exploration</a></h4>
+                <p class="text-dusty-mauve text-sm">Portland's urban wilderness</p>
+              </div>
+            </div>
+            <div class="related-post">
+              <img src="images/oregoncoast.jpg" alt="Oregon Coast">
+              <div>
+                <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="#">Oregon Coast Road Trip</a></h4>
+                <p class="text-dusty-mauve text-sm">Pacific coastline wonders</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Ad Space -->
+        <div class="vintage-card sidebar-widget rounded-lg text-center py-10">
+          <div class="text-dusty-mauve">
+            <p class="mb-2">Advertisement</p>
+            <p class="text-sm">Sponsored Content</p>
+            <p class="text-xs mt-2">300x250</p>
+          </div>
+        </div>
+        
+        <!-- Categories Widget -->
+        <div class="vintage-card sidebar-widget rounded-lg">
+          <h3 class="widget-title">Explore Categories</h3>
+          <div class="flex flex-wrap gap-2">
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-sm hover:bg-old-pink/20">Waterfalls</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-sm hover:bg-old-pink/20">Magic Walks</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-sm hover:bg-old-pink/20">Coastal</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-sm hover:bg-old-pink/20">Forests</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-sm hover:bg-old-pink/20">Mountains</a>
+            <a href="#" class="px-3 py-1 bg-old-pink/10 text-shadow-mauve rounded-full text-sm hover:bg-old-pink/20">Photography</a>
+          </div>
+        </div>
+        
+      </aside>
+      
+    </div>
+  </div>
 
-  <!-- Featured Image -->
-  <section class="relative w-full max-w-5xl mb-12">
-    <img src="images/placeholder-hero.jpg" alt="Hero photo of Multnomah Falls" class="w-full h-[28rem] object-cover rounded-3xl shadow-lg" />
-    <div class="absolute bottom-6 right-6 glass px-4 py-2 text-sm text-[#3a2e35]">Photo by <strong>@yourname</strong></div>
-  </section>
-
-  <!-- Main Article -->
-  <main class="w-full max-w-4xl px-6 md:px-0 leading-relaxed text-[1.1rem] text-gray-800 space-y-16">
-
-    <!-- Overview -->
-    <section class="space-y-6">
-      <h2 class="text-3xl font-semibold accent">Overview</h2>
-      <p>Multnomah Falls is a two-tiered cascade soaring 620 feet above the Columbia River Gorge, making it Oregon’s tallest and most beloved waterfall. Draped in moss, mist, and legend, it’s one of the Pacific Northwest’s most photographed locations — and for good reason. Every season unveils a different form of magic here, from icy winter veils to lush emerald spring canopies.</p>
-
-      <p>The falls are part of the <strong>Columbia River Gorge National Scenic Area</strong>, a region carved by ancient floods and volcanic activity, now wrapped in misty forests and timeless rock faces. Visiting Multnomah isn’t just about seeing a waterfall — it’s about feeling the quiet awe that settles in the canyon air as water crashes into stone.</p>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="space-y-6">
-      <h2 class="text-3xl font-semibold accent">Gallery Moments</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <img src="images/placeholder-bridge.jpg" alt="Benson Bridge at Multnomah Falls" class="rounded-2xl object-cover h-64 w-full shadow-md" />
-        <img src="images/placeholder-forest.jpg" alt="Trail near Multnomah Falls" class="rounded-2xl object-cover h-64 w-full shadow-md" />
-        <img src="images/placeholder-spray.jpg" alt="Misty lower cascade at Multnomah Falls" class="rounded-2xl object-cover h-64 w-full shadow-md" />
+  <!-- FOOTER MATCHING OTHER PAGES -->
+  <footer class="mt-16 mb-8 text-sm text-dusty-mauve text-center px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
+      <div class="mb-4 md:mb-0">
+        <p class="text-shadow-mauve font-semibold mb-1">Glass Circuits Travel</p>
+        <p>© 2025 Emily Cinder</p>
       </div>
-      <p class="text-gray-700">Bring your camera — or simply your sense of wonder. These photos capture only a fraction of Multnomah’s dreamlike textures: drifting spray, basalt columns, and the bridge that seems to float above the mist.</p>
-    </section>
-
-    <!-- Directions -->
-    <section class="space-y-6">
-      <h2 class="text-3xl font-semibold accent">Getting There</h2>
-      <p>Multnomah Falls lies roughly 30 miles east of Portland along Interstate 84. Exit 31 leads directly into the parking area, which fills quickly on weekends and holidays. Early morning is ideal for parking, solitude, and photography.</p>
-
-      <p>Visitors can reach the viewing platform in minutes — a paved walkway leads from the base lodge up to the lower falls overlook. For a closer view, continue to the <strong>Benson Bridge</strong>, the iconic arch suspended between tiers of water. The bridge view is often wrapped in gentle mist, offering a near-mythical experience, especially when sunlight filters through.</p>
-    </section>
-
-    <!-- Hike Section -->
-    <section class="space-y-6">
-      <h2 class="text-3xl font-semibold accent">The Hike to the Summit</h2>
-      <p>The trail to the top of Multnomah Falls climbs approximately 1.2 miles, winding through switchbacks carved into basalt cliffs. Though steep in places, the path is well-maintained and rewards you with sweeping views of the Columbia River Gorge from above the falls. Along the way, moss-draped maples and rushing side-streams accompany your ascent.</p>
-
-      <blockquote class="italic text-gray-600 border-l-4 border-[#bfa0a5] pl-4">
-        “Standing at the overlook, you can feel the rhythm of the falls — ancient, steady, and alive. It’s less a sound and more a heartbeat that echoes through stone.”
-      </blockquote>
-
-      <div class="grid grid-cols-2 gap-4 mt-6">
-        <img src="images/placeholder-topview.jpg" alt="View from the top of Multnomah Falls" class="rounded-2xl object-cover h-64 w-full shadow-md" />
-        <img src="images/placeholder-trail.jpg" alt="Trail to the top of Multnomah Falls" class="rounded-2xl object-cover h-64 w-full shadow-md" />
+      
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="text-dusty-mauve hover:text-old-pink"><i class="fab fa-twitter"></i></a>
       </div>
-    </section>
-
-    <!-- Photography Tips -->
-    <section class="space-y-6">
-      <h2 class="text-3xl font-semibold accent">Photography Tips</h2>
-      <ul class="list-disc ml-8 space-y-2">
-        <li><strong>Arrive early</strong> — morning light softens the scene and mists dance through the canyon.</li>
-        <li><strong>Bring a tripod</strong> for silky long exposures that capture the waterfall’s dreamlike motion.</li>
-        <li><strong>Visit year-round</strong> — winter brings icy cascades; summer reveals lush greens; autumn offers warm tones and soft light.</li>
-        <li><strong>Experiment with focal length</strong> — wide shots capture grandeur, while tighter frames isolate textures and reflections.</li>
-      </ul>
-    </section>
-
-    <!-- Nearby Attractions -->
-    <section class="space-y-6">
-      <h2 class="text-3xl font-semibold accent">Nearby Waterfalls & Hidden Spots</h2>
-      <p>Within minutes of Multnomah Falls are equally enchanting destinations:</p>
-      <ul class="list-disc ml-8 space-y-2">
-        <li><strong>Wahkeena Falls:</strong> A delicate, tiered cascade reachable via a short hike from the same parking area.</li>
-        <li><strong>Latourell Falls:</strong> A dramatic plunge with vivid basalt columns — ideal for moody photography.</li>
-        <li><strong>Horsetail Falls:</strong> Visible from the highway, this smaller yet powerful waterfall glows in afternoon sun.</li>
-      </ul>
-      <p>Each trail carries its own rhythm — together they form a gallery of Oregon’s elemental beauty.</p>
-    </section>
-
-    <!-- When to Visit -->
-    <section class="space-y-6">
-      <h2 class="text-3xl font-semibold accent">Best Time to Visit</h2>
-      <p><strong>Spring</strong> brings peak water flow and lush green canopies. <strong>Summer</strong> offers accessible trails and clear skies. <strong>Autumn</strong> turns the gorge gold and rose, while <strong>winter</strong> wraps the cliffs in ice, creating surreal crystalline patterns.</p>
-      <p>No matter the season, the atmosphere remains unmistakably ethereal — where light, water, and stone weave together like circuitry carved by time itself.</p>
-    </section>
-
-    <!-- Closing -->
-    <section class="glass p-8 text-center">
-      <h3 class="text-2xl font-semibold accent mb-2"> Travel Notes</h3>
-      <p class="text-gray-700 mb-4">Before you go, check weather conditions and bring sturdy shoes — the trail can be slippery in mist. The nearby Multnomah Falls Lodge offers restrooms, snacks, and a warm fireplace to end your visit.</p>
-      <a href="waterfalls.html" class="main-btn">← Back to Waterfalls</a>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="mt-20 mb-8 text-sm text-gray-500 text-center">
-    © 2025 Glass Circuits Travel — Written and photographed by Emily Cinder
+      
+      <div>
+        <p class="italic">"Not all those who wander are lost."</p>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
