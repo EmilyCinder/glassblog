@@ -14,27 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Ensure initial closed state
+  // Ensure closed state
   menuDrawer.classList.add("-translate-x-full");
   menuBackdrop.classList.add("hidden");
   menuBtn.setAttribute("aria-expanded", "false");
 
-  const openMenu = () => {
+  function openMenu(){
     menuDrawer.classList.remove("-translate-x-full");
     menuBackdrop.classList.remove("hidden");
     menuBtn.setAttribute("aria-expanded", "true");
-  };
+  }
 
-  const closeMenu = () => {
+  function closeMenu(){
     menuDrawer.classList.add("-translate-x-full");
     menuBackdrop.classList.add("hidden");
     menuBtn.setAttribute("aria-expanded", "false");
-  };
+  }
 
-  const toggleMenu = () => {
+  function toggleMenu(){
     const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
     isOpen ? closeMenu() : openMenu();
-  };
+  }
 
   menuBtn.addEventListener("click", (e) => {
     e.preventDefault();
