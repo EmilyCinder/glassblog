@@ -23,6 +23,15 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- ✅ Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- ✅ Map feature files -->
+  <link rel="stylesheet" href="map.css">
+  <script defer src="places.js"></script>
+  <script defer src="map.js"></script>
+
   <!-- Base structured data (fine for now; later we’ll add BlogPosting schema per post) -->
   <script type="application/ld+json">
   {
@@ -201,7 +210,7 @@
 
   <button id="mapBtn"
     class="fixed right-4 top-4 z-[80] rounded-2xl px-4 py-3 text-[#fff7f1] fixed-glass-btn hover:bg-black/30"
-    aria-label="Return to Atlas">
+    aria-label="Toggle Atlas">
     <!-- Clean SVG map icon -->
     <svg xmlns="http://www.w3.org/2000/svg"
       width="20" height="20" viewBox="0 0 24 24"
@@ -280,21 +289,25 @@
     </div>
   </aside>
 
-  <!-- ATLAS HERO (100vh). Mapbox will mount inside #map later -->
+  <!-- ATLAS HERO (100vh) -->
   <section id="atlas" aria-label="Atlas">
     <div id="map" class="bg-black/10"></div>
 
-    <!-- Atlas overlay title (cozy, minimal) -->
+    <!-- Fantasy overlays -->
+    <div class="parchment-overlay"></div>
+    <div class="vignette"></div>
+
+    <!-- Atlas overlay title (mobile centered + smaller) -->
     <div class="absolute left-4 right-4 top-20 z-10 mx-auto max-w-3xl">
-      <div class="rounded-3xl border border-white/10 bg-black/20 backdrop-blur-2xl px-5 py-4">
-        <h1 class="site-title atlas-glow atlas-breathe text-3xl md:text-5xl text-[#fff7f1]">
+      <div class="rounded-3xl border border-white/10 bg-black/20 backdrop-blur-2xl px-5 py-4 text-center md:text-left">
+        <h1 class="site-title atlas-glow atlas-breathe text-2xl sm:text-3xl md:text-5xl text-[#fff7f1]">
           Glass Circuits Travel
         </h1>
-        <p class="mt-2 text-[#fff7f1]/75 italic text-base md:text-lg">
+        <p class="mt-2 text-[#fff7f1]/75 italic text-sm sm:text-base md:text-lg">
           Ethereal explorations through Oregon & beyond
         </p>
-        <p class="mt-3 text-sm md:text-base text-[#fff7f1]/70">
-          The Atlas is waking. (Map prototype coming next.)
+        <p class="mt-3 text-xs sm:text-sm md:text-base text-[#fff7f1]/70">
+          Click a rune pin to open a chronicle.
         </p>
       </div>
     </div>
@@ -529,25 +542,6 @@
     menuClose.addEventListener("click", closeMenu);
     window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
 
-    // Map button scrolls back to Atlas
-    const atlas = document.getElementById("atlas");
-    const mapBtn = document.getElementById("mapBtn");
-    const scrollCue = document.getElementById("scrollCue");
-
-    mapBtn.addEventListener("click", () => {
-      atlas.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-    scrollCue.addEventListener("click", () => {
-      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-    });
-
-    // Glow map icon when Atlas is off-screen (portal cue)
-    const obs = new IntersectionObserver(([entry]) => {
-      const offMap = !entry.isIntersecting;
-      mapBtn.classList.toggle("map-icon-glow", offMap);
-    }, { threshold: 0.35 });
-    obs.observe(atlas);
-
     // Subscription form (your current simple behavior)
     document.addEventListener("DOMContentLoaded", function() {
       const subscribeBtn = document.querySelector('button[type="submit"]');
@@ -565,7 +559,7 @@
       }
     });
 
-    // Satchel (placeholder until we wire locations)
+    // Satchel placeholder (map.js also binds, but this keeps your original behavior if desired)
     document.getElementById("satchelBtn").addEventListener("click", () => {
       alert("Satchel will list your pinned places once the map + locations are wired up.");
     });
