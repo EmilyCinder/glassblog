@@ -212,7 +212,7 @@
       box-shadow: 0 14px 34px rgba(0,0,0,0.20), 0 0 0 1px rgba(255,255,255,0.08) inset;
     }
 
-    /* Blog section header (keep your original blog layout vibe but in atlas font) */
+    /* Blog section header */
     .section-header{
       font-size: 2rem;
       text-align: center;
@@ -236,6 +236,11 @@
       z-index: 10;
     }
     .card-content{ position:relative; z-index: 20; }
+
+    /* Section anchor offset for fixed header */
+    .section-anchor {
+      scroll-margin-top: var(--rail-h);
+    }
 
     @media (max-width: 768px){
       .section-header{ font-size: 1.75rem; }
@@ -278,7 +283,7 @@
   <!-- Menu backdrop -->
   <div id="menuBackdrop" class="fixed inset-0 z-[79] hidden bg-black/35 backdrop-blur-[2px]"></div>
 
-  <!-- Side menu (same as index) -->
+  <!-- Side menu (UPDATED: Removed Destinations and Satchel) -->
   <aside id="menuDrawer"
     class="fixed left-0 top-0 z-[80] h-full w-[min(360px,88vw)] -translate-x-full transition-transform duration-300 ease-out">
     <div class="relative h-full overflow-hidden border-r border-white/10 bg-black/35 backdrop-blur-2xl shadow-2xl">
@@ -311,10 +316,6 @@
             class="block w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 font-semibold text-[#fff7f1]">
             ✧ Blog Archive
           </a>
-          <a href="destinations.html"
-            class="block w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-[#fff7f1] hover:bg-white/10">
-            ✧ Destinations
-          </a>
           <a href="about.html"
             class="block w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-[#fff7f1] hover:bg-white/10">
             ❀ About
@@ -323,12 +324,6 @@
             class="block w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-[#fff7f1] hover:bg-white/10">
             ☾ Contact
           </a>
-
-          <button id="satchelBtn"
-            class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left font-semibold text-[#fff7f1] hover:bg-white/10">
-            🜂 Satchel
-            <div class="mt-1 text-xs tracking-[0.22em] uppercase text-[#fff7f1]/60">pinned places</div>
-          </button>
         </nav>
       </div>
     </div>
@@ -370,7 +365,7 @@
 
   <section id="mapPanel" class="atlas-panel" aria-hidden="true" style="display:none;"></section>
 
-  <!-- ✅ BLOG MAIN CONTENT (your original blog.html content, but now living under the index-style nav) -->
+  <!-- ✅ BLOG MAIN CONTENT with separate sections for each category -->
   <main class="w-full max-w-6xl px-4 space-y-16 mx-auto">
 
     <div class="text-center mt-2">
@@ -386,8 +381,173 @@
       </div>
     </div>
 
-    <!-- SECTION 1: Waterfall Hikes -->
-    <section id="waterfalls" class="space-y-8">
+    <!-- SECTION: Coastal Chronicles -->
+    <section id="coastal" class="space-y-8 section-anchor">
+      <h2 class="section-header site-title">Coastal Chronicles</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+          <a href="coast.html" class="full-click-overlay" aria-label="Read The Rugged Beauty of Oregon's Coastline"></a>
+          <img src="images/oregoncoast.jpg" alt="Oregon coastline sea stacks and fog" class="w-full h-64 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Coastal</span>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-2xl font-semibold text-shadow-mauve">The Rugged Beauty of Oregon's Coastline</h3>
+                <span class="text-dusty-mauve text-sm">May 28, 2025</span>
+              </div>
+              <p class="text-shadow-mauve mb-4">Exploring hidden coves and dramatic sea stacks along the Pacific coastline.</p>
+            </div>
+            <span class="vintage-btn">Continue Reading →</span>
+          </div>
+        </article>
+
+        <!-- Placeholder for future coastal posts -->
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
+          <img src="images/oregoncoast2.jpg" alt="More Oregon Coast" class="w-full h-64 object-cover bg-dusty-mauve/20" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Coastal</span>
+              <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">More Coastal Stories</h3>
+              <p class="text-shadow-mauve mb-4">More coastal explorations coming soon...</p>
+            </div>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
+          </div>
+        </article>
+
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
+          <img src="images/oregoncoast3.jpg" alt="Oregon Coast" class="w-full h-64 object-cover bg-dusty-mauve/20" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Coastal</span>
+              <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Secret Beaches</h3>
+              <p class="text-shadow-mauve mb-4">Hidden coastal gems waiting to be discovered...</p>
+            </div>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
+          </div>
+        </article>
+      </div>
+      
+      <div class="ad-space rounded-lg p-8 text-center my-8">
+        <div class="text-dusty-mauve">
+          <p class="mb-2">Advertisement</p>
+          <p class="text-sm">300x250</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Forest Chronicles -->
+    <section id="forests" class="space-y-8 section-anchor">
+      <h2 class="section-header site-title">Forest Chronicles</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+          <a href="forest.html" class="full-click-overlay" aria-label="Read Moss-Covered Trails: The Magic of Old-Growth Forests"></a>
+          <img src="images/oregonforest.jpg" alt="Mossy old-growth forest trail in Oregon" class="w-full h-64 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Forests</span>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-2xl font-semibold text-shadow-mauve">Moss-Covered Trails: The Magic of Old-Growth Forests</h3>
+                <span class="text-dusty-mauve text-sm">May 12, 2025</span>
+              </div>
+              <p class="text-shadow-mauve mb-4">Venturing into Oregon's ancient forests where centuries-old trees create cathedral-like spaces.</p>
+            </div>
+            <span class="vintage-btn">Continue Reading →</span>
+          </div>
+        </article>
+
+        <!-- Placeholder for future forest posts -->
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
+          <img src="images/forest2.jpg" alt="Forest Trail" class="w-full h-64 object-cover bg-dusty-mauve/20" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Forests</span>
+              <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Old-Growth Wonders</h3>
+              <p class="text-shadow-mauve mb-4">Exploring the deepest parts of Oregon's forests...</p>
+            </div>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
+          </div>
+        </article>
+
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
+          <img src="images/forest3.jpg" alt="Mossy Forest" class="w-full h-64 object-cover bg-dusty-mauve/20" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Forests</span>
+              <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Fern-Covered Paths</h3>
+              <p class="text-shadow-mauve mb-4">Where the forest floor comes alive with green...</p>
+            </div>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
+          </div>
+        </article>
+      </div>
+      
+      <div class="ad-space rounded-lg p-8 text-center my-8">
+        <div class="text-dusty-mauve">
+          <p class="mb-2">Advertisement</p>
+          <p class="text-sm">300x250</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Mountain Chronicles -->
+    <section id="mountains" class="space-y-8 section-anchor">
+      <h2 class="section-header site-title">Mountain Chronicles</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+          <a href="mthood.html" class="full-click-overlay" aria-label="Read Reflections of Mount Hood: Alpine Lakes & Wildflower Meadows"></a>
+          <img src="images/mthood.jpg" alt="Mount Hood reflected in an alpine lake" class="w-full h-64 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Mountains</span>
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-2xl font-semibold text-shadow-mauve">Reflections of Mount Hood: Alpine Lakes & Wildflower Meadows</h3>
+                <span class="text-dusty-mauve text-sm">April 30, 2025</span>
+              </div>
+              <p class="text-shadow-mauve mb-4">Journey to the pristine alpine lakes that mirror Oregon's tallest peak.</p>
+            </div>
+            <span class="vintage-btn">Continue Reading →</span>
+          </div>
+        </article>
+
+        <!-- Placeholder for future mountain posts -->
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
+          <img src="images/mountain2.jpg" alt="Mountain Peak" class="w-full h-64 object-cover bg-dusty-mauve/20" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Mountains</span>
+              <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Jefferson Park</h3>
+              <p class="text-shadow-mauve mb-4">Alpine meadows beneath Mount Jefferson...</p>
+            </div>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
+          </div>
+        </article>
+
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
+          <img src="images/mountain3.jpg" alt="Three Sisters" class="w-full h-64 object-cover bg-dusty-mauve/20" />
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Mountains</span>
+              <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">The Three Sisters</h3>
+              <p class="text-shadow-mauve mb-4">Exploring the volcanic peaks of Central Oregon...</p>
+            </div>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
+          </div>
+        </article>
+      </div>
+      
+      <div class="ad-space rounded-lg p-8 text-center my-8">
+        <div class="text-dusty-mauve">
+          <p class="mb-2">Advertisement</p>
+          <p class="text-sm">300x250</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Waterfall Hikes -->
+    <section id="waterfalls" class="space-y-8 section-anchor">
       <h2 class="section-header site-title">Waterfall Hikes in Oregon</h2>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -404,27 +564,27 @@
           </div>
         </article>
 
-        <article class="vintage-card rounded-xl overflow-hidden">
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
           <img src="images/wahkeena falls.jpg" alt="Wahkeena Falls" class="w-full h-64 object-cover" />
-          <div class="p-6 flex flex-col justify-between h-full">
+          <div class="p-6 flex flex-col justify-between h-full card-content">
             <div>
               <span class="category-tag">Waterfall</span>
               <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Wahkeena Falls</h3>
               <p class="text-shadow-mauve mb-4">A graceful waterfall just steps from Multnomah — flowing through a fairytale canyon of ferns and light.</p>
             </div>
-            <a href="#" class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</a>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
           </div>
         </article>
 
-        <article class="vintage-card rounded-xl overflow-hidden">
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
           <img src="images/hidden cascades.jpg" alt="Oregon Waterfall" class="w-full h-64 object-cover" />
-          <div class="p-6 flex flex-col justify-between h-full">
+          <div class="p-6 flex flex-col justify-between h-full card-content">
             <div>
               <span class="category-tag">Waterfall</span>
               <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Hidden Cascades</h3>
               <p class="text-shadow-mauve mb-4">Discover lesser-known waterfalls tucked away in Oregon's ancient forests.</p>
             </div>
-            <a href="#" class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</a>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
           </div>
         </article>
       </div>
@@ -441,13 +601,13 @@
       </div>
     </section>
 
-    <!-- SECTION 2: Magic Walks -->
-    <section id="magicwalks" class="space-y-8">
+    <!-- SECTION: Magic Walks -->
+    <section id="magicwalks" class="space-y-8 section-anchor">
       <h2 class="section-header site-title">Magic Walks in Portland, OR</h2>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
-          <a href="mttabor.html" class="full-click-overlay" aria-label="Read Mount Tabor"></a>
+          <a href="mttabor.html" class="full-click-overlay" aria-label="Read Mount Tabor Park"></a>
           <img src="images/mt tabor-20251021T163458Z-1-001/mt tabor/tabor04.JPG" alt="Mount Tabor Park Portland" class="w-full h-64 object-cover" />
           <div class="p-6 flex flex-col justify-between h-full card-content">
             <div>
@@ -459,27 +619,27 @@
           </div>
         </article>
 
-        <article class="vintage-card rounded-xl overflow-hidden">
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
           <img src="images/forestpark.jpg" alt="Forest Park Portland" class="w-full h-64 object-cover" />
-          <div class="p-6 flex flex-col justify-between h-full">
+          <div class="p-6 flex flex-col justify-between h-full card-content">
             <div>
               <span class="category-tag">Forest Walk</span>
               <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Forest Park</h3>
               <p class="text-shadow-mauve mb-4">Step into the mossy quiet of one of America's largest urban forests — where every turn hums with green.</p>
             </div>
-            <a href="#" class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</a>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
           </div>
         </article>
 
-        <article class="vintage-card rounded-xl overflow-hidden">
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
           <img src="images/willametteriver.jpg" alt="Portland Walk" class="w-full h-64 object-cover" />
-          <div class="p-6 flex flex-col justify-between h-full">
+          <div class="p-6 flex flex-col justify-between h-full card-content">
             <div>
               <span class="category-tag">River Walk</span>
               <h3 class="text-2xl font-semibold mb-2 text-shadow-mauve">Willamette River</h3>
               <p class="text-shadow-mauve mb-4">Follow the river's edge through Portland's vibrant waterfront districts.</p>
             </div>
-            <a href="#" class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</a>
+            <span class="vintage-btn opacity-70 cursor-not-allowed">Coming Soon</span>
           </div>
         </article>
       </div>
@@ -513,15 +673,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Satchel placeholder
-    const satchelBtn = document.getElementById("satchelBtn");
-    if (satchelBtn) {
-      satchelBtn.addEventListener("click", () => {
-        alert("Satchel will list your pinned places once the map + locations are wired up.");
-      });
-    }
-  </script>
 </body>
 </html>
