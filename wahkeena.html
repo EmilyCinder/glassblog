@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover the ethereal beauty of Wahkeena Falls in Oregon's Columbia River Gorge — a graceful 242‑foot waterfall surrounded by ferns, moss, and fairytale light. Complete travel guide by Glass Circuits Travel." />
+  <meta name="keywords" content="Wahkeena Falls, Columbia River Gorge, Oregon waterfall hikes, Multnomah Falls, PNW travel blog, waterfall photography, Glass Circuits Travel" />
+  <meta name="author" content="Emily Cinder" />
+
+  <title>Wahkeena Falls Guide | Glass Circuits Travel</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="map.css">
+  <script defer src="places.js"></script>
+  <script defer src="map.js"></script>
+  <script defer src="menu.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Wahkeena Falls: A Graceful Cascade in the Gorge",
+    "image": "https://emilycinder.github.io/glassblog/images/wahkeena%20falls.jpg",
+    "author": { "@type": "Person", "name": "Emily Cinder" },
+    "publisher": { "@type": "Organization", "name": "Glass Circuits Travel" },
+    "datePublished": "2025-11-15",
+    "articleSection": "Waterfall Hikes",
+    "keywords": "Wahkeena Falls, Columbia Gorge, Oregon waterfall"
+  }
+  </script>
+
+  <style>
+    :root{
+      --aged-paper:#f5f1e8;
+      --dusty-mauve:#b39e9d;
+      --old-pink:#d4b4b4;
+      --vintage-rose:#c9a8a9;
+      --shadow-mauve:#8a7679;
+      --sepia-brown:#8b7d6b;
+      --sage:#9db2a1;
+      --font-atlas:"Uncial Antiqua", serif;
+      --font-body:"Cormorant Garamond", serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --rail-h: calc(var(--safe-top) + 76px);
+      --page-gap: 18px;
+      --page-top: calc(var(--rail-h) + var(--page-gap));
+    }
+
+    html, body{ height:100%; overflow-x:hidden; }
+    body{
+      font-family: var(--font-body);
+      background-color: var(--aged-paper);
+      color: var(--shadow-mauve);
+      line-height: 1.7;
+      padding-top: var(--page-top);
+    }
+
+    h1,h2,h3,h4,.site-title,.section-title{
+      font-family: var(--font-atlas);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--shadow-mauve);
+    }
+
+    .atlas-glow{
+      text-shadow: 0 0 6px rgba(214,174,182,0.25), 0 0 14px rgba(157,178,161,0.18), 0 0 24px rgba(214,174,182,0.12);
+    }
+
+    @keyframes atlas-breathe{
+      0%,100%{ text-shadow: 0 0 6px rgba(214,174,182,.20), 0 0 14px rgba(157,178,161,.14); }
+      50%{ text-shadow: 0 0 12px rgba(214,174,182,.32), 0 0 22px rgba(157,178,161,.20); }
+    }
+    .atlas-breathe{ animation: atlas-breathe 6s ease-in-out infinite; }
+
+    /* ========== GLOWY HOVER EFFECTS (mauve pink iridescent) ========== */
+    .vintage-card{
+      background: rgba(245,241,232,0.95);
+      border: 1px solid var(--dusty-mauve);
+      box-shadow: 0 4px 12px rgba(139,125,107,0.10);
+      transition: all 0.3s ease;
+    }
+    .vintage-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(212,180,180,0.35), 0 0 0 1px rgba(212,180,180,0.3);
+      border-color: var(--old-pink);
+    }
+
+    .vintage-btn{
+      background: var(--shadow-mauve);
+      color: var(--aged-paper);
+      padding: .75rem 1.5rem;
+      border: 1px solid var(--sepia-brown);
+      font-family: var(--font-atlas);
+      letter-spacing:0.04em;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+    .vintage-btn:hover{
+      background: var(--old-pink);
+      border-color: var(--old-pink);
+      transform: translateY(-2px);
+      box-shadow: 0 0 12px rgba(212,180,180,0.5), 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Extra glow for images inside cards */
+    .blog-post img, .image-gallery img{
+      transition: all 0.4s ease;
+    }
+    .blog-post:hover img, .image-gallery figure:hover img{
+      filter: brightness(1.02) saturate(1.05);
+      box-shadow: 0 8px 24px rgba(212,180,180,0.3);
+    }
+
+    /* Iridescent link glow */
+    a:not(.vintage-btn):not(.fixed-glass-btn){
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--shadow-mauve);
+    }
+    a:not(.vintage-btn):not(.fixed-glass-btn):hover{
+      color: var(--old-pink);
+      text-shadow: 0 0 4px rgba(212,180,180,0.5);
+    }
+
+    .category-tag{
+      background-color: rgba(212,180,180,0.15);
+      color: var(--shadow-mauve);
+      border: 1px solid rgba(212,180,180,0.40);
+      padding: .25rem .75rem;
+      font-size: .75rem;
+      font-family: var(--font-atlas);
+      letter-spacing:0.04em;
+      display:inline-block;
+      transition: all 0.2s;
+    }
+    .category-tag:hover{
+      background-color: rgba(212,180,180,0.3);
+      border-color: var(--old-pink);
+      box-shadow: 0 0 6px rgba(212,180,180,0.4);
+    }
+
+    .text-dusty-mauve{ color: var(--dusty-mauve); }
+    .text-old-pink{ color: var(--old-pink); }
+    .text-shadow-mauve{ color: var(--shadow-mauve); }
+    .bg-aged-paper{ background-color: var(--aged-paper); }
+
+    .article-divider{
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--old-pink), transparent);
+      margin: 3rem auto;
+      width: 80%;
+    }
+
+    .photo-caption{
+      font-size: 0.95rem;
+      color: var(--dusty-mauve);
+      margin-top: 0.75rem;
+      text-align: center;
+      font-style: italic;
+    }
+
+    blockquote{
+      font-style: italic;
+      border-left: 3px solid var(--old-pink);
+      padding-left: 1.25rem;
+      margin: 2rem 0;
+    }
+
+    .pull-quote{
+      font-family: var(--font-atlas);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--shadow-mauve);
+      border-left: 3px solid var(--old-pink);
+      padding-left: 1.25rem;
+      margin: 2.5rem 0;
+      line-height: 1.5;
+    }
+
+    .tip-box{
+      background: rgba(212, 180, 180, 0.10);
+      border-left: 3px solid var(--old-pink);
+      padding: 1.25rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.2s;
+    }
+    .tip-box:hover{
+      background: rgba(212, 180, 180, 0.18);
+      box-shadow: 0 0 8px rgba(212,180,180,0.2);
+    }
+
+    ul{ list-style: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    li{ margin-bottom: .5rem; }
+
+    /* title bar (same as mttabor) */
+    .top-rail{
+      position: fixed;
+      left: 0; right: 0; top: 0;
+      z-index: 75;
+      height: var(--rail-h);
+      background: linear-gradient(to bottom, rgba(179,158,157,0.45), rgba(179,158,157,0.10));
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+      pointer-events:none;
+    }
+
+    .top-title{
+      position: fixed;
+      top: calc(var(--safe-top) + 18px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 76;
+      pointer-events: none;
+      font-family: var(--font-atlas);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(179,158,157,0.98);
+      text-shadow: 0 0 14px rgba(255,247,241,0.22), 0 10px 24px rgba(0,0,0,0.20);
+      font-size: 13px;
+      white-space: nowrap;
+      max-width: 78vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+    }
+
+    @media (min-width: 640px){
+      .top-title{ font-size: 16px; max-width: 70vw; }
+      :root{ --rail-h: calc(var(--safe-top) + 82px); }
+    }
+    @media (min-width: 1024px){
+      .top-title{ font-size: 18px; }
+      :root{ --rail-h: calc(var(--safe-top) + 86px); }
+    }
+
+    .fixed-glass-btn{
+      background: rgba(179,158,157,0.34);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.06) inset;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .fixed-glass-btn:hover{
+      background: rgba(212,180,180,0.50);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.20), 0 0 0 2px rgba(212,180,180,0.3) inset;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-aged-paper">
+  <script> window.SITE_HOME = "/glassblog/"; </script>
+
+  <div class="top-rail" aria-hidden="true"></div>
+  <div class="top-title" aria-hidden="true">GLASS CIRCUITS TRAVEL</div>
+
+  <button id="menuBtn" class="fixed z-[80] rounded-2xl px-4 py-3 text-[#fff7f1] fixed-glass-btn hover:bg-black/30" style="top: calc(var(--safe-top) + 14px); left: calc(var(--safe-left) + 14px);" aria-label="Open menu" aria-expanded="false"><span class="text-lg">☰</span></button>
+  <button id="mapBtn" class="fixed z-[80] rounded-2xl px-4 py-3 text-[#fff7f1] fixed-glass-btn hover:bg-black/30" style="top: calc(var(--safe-top) + 14px); right: calc(var(--safe-right) + 14px);" aria-label="Open Atlas" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg></button>
+
+  <div id="menuBackdrop" class="fixed inset-0 z-[79] hidden bg-black/35 backdrop-blur-[2px]"></div>
+  <aside id="menuDrawer" class="fixed left-0 top-0 z-[80] h-full w-[min(360px,88vw)] -translate-x-full transition-transform duration-300 ease-out">
+    <div class="relative h-full overflow-hidden border-r border-white/10 bg-black/35 backdrop-blur-2xl shadow-2xl">
+      <div class="relative p-5">
+        <div class="flex items-start justify-between gap-4"><div class="min-w-0"><div class="site-title atlas-glow text-lg font-semibold text-[#fff7f1]">Glass Circuits Travel</div><div class="mt-1 text-xs tracking-[0.25em] uppercase text-[#fff7f1]/70">cozy fantasy atlas • pnw & beyond</div></div><button id="menuClose" class="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-[#fff7f1]/80 hover:bg-white/10" aria-label="Close menu">✕</button></div>
+        <div class="mt-4 flex items-center gap-3"><div class="h-px flex-1 bg-white/10"></div><div class="text-xs tracking-[0.35em] uppercase text-[#fff7f1]/55">❀</div><div class="h-px flex-1 bg-white/10"></div></div>
+        <nav class="mt-4 space-y-2">
+          <a href="index.html" class="block w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-[#fff7f1] hover:bg-white/10">✧ Home (Atlas)</a>
+          <a href="blog.html" class="block w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-[#fff7f1] hover:bg-white/10">✧ Blog Archive</a>
+          <a href="about.html" class="block w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-[#fff7f1] hover:bg-white/10">❀ About</a>
+          <a href="contact.html" class="block w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-semibold text-[#fff7f1] hover:bg-white/10">☾ Contact</a>
+        </nav>
+      </div>
+    </div>
+  </aside>
+
+  <div id="atlasBackdrop" class="atlas-backdrop" aria-hidden="true"></div>
+  <div id="mapBackdrop" class="atlas-backdrop" aria-hidden="true"></div>
+  <section id="atlasPanel" class="atlas-panel" aria-hidden="true"><div class="atlas-shell"><div id="leafletMap" style="position:absolute; inset:0; width:100%; height:100%;"><div id="map" style="position:absolute; inset:0; width:100%; height:100%;"></div></div><div class="parchment-overlay"></div><div class="vignette"></div><div class="atlas-header"><div class="atlas-header-card"><div class="site-title atlas-glow atlas-breathe atlas-title">Glass Circuits Travel</div><div class="atlas-sub">Click a rune pin to open a chronicle.</div></div></div><button id="atlasClose" class="atlas-close-btn" aria-label="Exit Atlas"><span class="atlas-close-text">EXIT ATLAS</span><span class="atlas-close-x">✕</span></button><button id="mapClose" class="sr-only" aria-label="Exit Atlas (compat)"></button><div class="atlas-exit-hint" aria-hidden="true"><span class="atlas-exit-dot"></span>Tap <strong>EXIT ATLAS</strong> • <span class="opacity-80">Esc</span></div></div></section>
+  <section id="mapPanel" class="atlas-panel" aria-hidden="true" style="display:none;"></section>
+
+  <!-- MAIN CONTENT -->
+  <div class="max-w-6xl mx-auto px-4 pb-10">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <main class="lg:w-2/3">
+        <header class="vintage-card rounded-xl p-6 md:p-8 mb-8">
+          <div class="flex flex-wrap items-center gap-3 mb-4"><span class="category-tag">Waterfall Hikes</span><span class="text-dusty-mauve">November 15, 2025</span><span class="text-dusty-mauve">• 6 min read</span></div>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl leading-tight atlas-glow atlas-breathe">Wahkeena Falls: A Graceful Cascade in the Gorge</h1>
+          <div class="mt-5 flex items-center gap-4"><div class="w-12 h-12 rounded-full overflow-hidden border border-dusty-mauve/40"><img src="images/homework crop about me.png" alt="Emily Cinder" class="w-full h-full object-cover"></div><div><p class="font-semibold text-shadow-mauve">Emily Cinder</p><p class="text-dusty-mauve text-sm">Writer & Photographer</p></div></div>
+        </header>
+
+        <div class="mb-10">
+          <img src="images/wahkeena falls.jpg" alt="Wahkeena Falls cascading through ferns and moss" class="w-full h-auto max-h-[520px] object-cover rounded-xl shadow-lg">
+          <p class="photo-caption">Wahkeena Falls – a 242‑foot ribbon of water in the Columbia River Gorge | Photo by Emily Cinder</p>
+        </div>
+
+        <div class="article-content">
+          <p class="text-xl text-shadow-mauve mb-6">Just a quarter‑mile west of its famous neighbor Multnomah Falls, <strong>Wahkeena Falls</strong> offers a quieter, more intimate waterfall experience. The name “Wahkeena” comes from a Chinook word meaning “most beautiful” — and it’s easy to see why.</p>
+          <p>Water doesn’t just fall here; it dances. The stream twists and tumbles over mossy basalt ledges, veiled by ferns and the soft light filtering through old‑growth firs. Unlike the dramatic single plunge of Multnomah, Wahkeena is a multilevel cascade, each tier revealing a new angle, a new whisper of the forest.</p>
+          <div class="pull-quote">“Wahkeena feels like a secret shared between the canyon and the sky.”</div>
+          <p>A short, paved trail leads from the Historic Columbia River Highway to the base of the falls. But the real magic begins if you continue upward — the Wahkeena‑Multnomah loop connects both waterfalls, winding through fairy‑tale switchbacks, across stone bridges, and past tiny unnamed cascades.</p>
+
+          <div class="article-divider"></div>
+
+          <section class="image-gallery">
+            <h2 class="text-2xl md:text-3xl mb-6 site-title">Gallery: The Many Faces of Wahkeena</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <figure><img src="images/wahkeena_falls_side.jpg" alt="Side view of Wahkeena Falls" class="w-full h-64 object-cover rounded-xl shadow-md" onerror="this.src='images/wahkeena%20falls.jpg'"><figcaption class="photo-caption">The upper tier from the footbridge</figcaption></figure>
+              <figure><img src="images/wahkeena_trail.jpg" alt="Mossy trail to Wahkeena Falls" class="w-full h-64 object-cover rounded-xl shadow-md" onerror="this.src='images/wahkeena%20falls.jpg'"><figcaption class="photo-caption">Fairytale path through the gorge</figcaption></figure>
+              <figure><img src="images/wahkeena_fern.jpg" alt="Ferns near Wahkeena Falls" class="w-full h-64 object-cover rounded-xl shadow-md" onerror="this.src='images/wahkeena%20falls.jpg'"><figcaption class="photo-caption">Ferns and mist — the heart of the gorge</figcaption></figure>
+            </div>
+          </section>
+
+          <div class="article-divider"></div>
+
+          <section>
+            <h2 class="text-2xl md:text-3xl mb-4 site-title">Hike Details & Tips</h2>
+            <ul>
+              <li><strong>Distance to base:</strong> 0.2 miles (very easy, wheelchair‑accessible to viewpoint).</li>
+              <li><strong>Wahkeena‑Multnomah loop:</strong> 2.4 miles, moderate, gains ~500 ft. Connects both waterfalls.</li>
+              <li><strong>Best time:</strong> Late spring (high water flow) or autumn (golden light + fewer crowds).</li>
+              <li><strong>Parking:</strong> Use the Multnomah Falls lot (often fills by 9am on weekends) or park at Wahkeena’s small lot.</li>
+            </ul>
+            <div class="tip-box">
+              <div class="font-semibold mb-2" style="font-family:var(--font-atlas);">Pro Tip</div>
+              <p>Start at Wahkeena, hike up to the junction, then descend past Multnomah. You’ll see both falls with the sun mostly at your back — perfect for photography.</p>
+            </div>
+          </section>
+
+          <div class="article-divider"></div>
+
+          <section>
+            <h2 class="text-2xl md:text-3xl mb-4 site-title">Photography at Wahkeena</h2>
+            <p>The soft, dappled light and constant mist create an ethereal atmosphere. For best results:</p>
+            <ul>
+              <li>Use a polarizer to cut glare on wet rocks.</li>
+              <li>Visit in the morning for softer shadows (the gorge faces east).</li>
+              <li>Bring a tripod for long exposures — the water becomes a silky veil.</li>
+              <li>Don’t forget the small details: ferns, moss, and the stone bridge make beautiful foregrounds.</li>
+            </ul>
+          </section>
+
+          <div class="article-divider"></div>
+
+          <section>
+            <h2 class="text-2xl md:text-3xl mb-4 site-title">Nearby Wonders</h2>
+            <p>The Columbia River Gorge is packed with waterfalls. Pair Wahkeena with:</p>
+            <ul>
+              <li><strong>Multnomah Falls</strong> – 0.25 mi east (see our <a href="multnomah.html">full guide</a>)</li>
+              <li><strong>Bridal Veil Falls</strong> – 5 mi west, a short hike to a two‑tier cascade</li>
+              <li><strong>Latourell Falls</strong> – 7 mi west, unique yellow basalt columns</li>
+            </ul>
+          </section>
+
+          <div class="article-divider"></div>
+
+          <section class="vintage-card p-8 rounded-xl mt-8">
+            <h3 class="text-2xl md:text-3xl mb-4 text-center site-title">Plan Your Visit</h3>
+            <p class="text-center mb-6">Wahkeena Falls is accessible year‑round. Bring layers, a rain jacket (the mist is real), and a sense of wonder. The trail can be slick — wear sturdy shoes. Leave no trace and let the cascade whisper its ancient story to you.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="blog.html#waterfalls" class="vintage-btn">← Back to Blog</a>
+              <a href="multnomah.html" class="vintage-btn">Read Multnomah Guide →</a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <aside class="lg:w-1/3">
+        <div class="vintage-card rounded-xl p-6 mb-8"><h3 class="text-xl mb-3 site-title">Subscribe</h3><p class="text-dusty-mauve mb-4">Get new waterfall guides + PNW magic in your inbox.</p><form class="space-y-3"><input type="email" placeholder="Your email address" class="w-full px-4 py-3 border border-dusty-mauve/50 bg-white/50 rounded-lg focus:outline-none focus:border-old-pink"><button type="submit" class="vintage-btn w-full">Subscribe</button></form><p class="text-dusty-mauve text-sm mt-3 italic">No spam, ever.</p></div>
+        <div class="vintage-card rounded-xl p-6 mb-8"><h3 class="text-xl mb-4 site-title">Related Posts</h3><div class="space-y-4"><div class="flex gap-4 pb-4 border-b border-dusty-mauve/20"><img src="images/Mfalls.jpg" alt="Multnomah Falls" class="w-20 h-20 object-cover rounded-lg"><div><h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="multnomah.html">Multnomah Falls Guide</a></h4><p class="text-dusty-mauve text-sm">Oregon's iconic waterfall</p></div></div><div class="flex gap-4"><img src="images/oregonforest.jpg" alt="Forest trail" class="w-20 h-20 object-cover rounded-lg"><div><h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="forest.html">Moss‑Covered Trails</a></h4><p class="text-dusty-mauve text-sm">Old‑growth forest magic</p></div></div></div></div>
+        <div class="vintage-card rounded-xl text-center py-10 px-6"><div class="text-dusty-mauve"><p class="mb-2">Advertisement</p><p class="text-sm">Sponsored Content</p><p class="text-xs mt-2">300x250</p></div></div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="mt-10 mb-8 text-sm text-dusty-mauve text-center px-4"><div class="max-w-6xl mx-auto"><p class="text-shadow-mauve font-semibold mb-1" style="font-family:var(--font-atlas);">Glass Circuits Travel</p><p>© 2025 Emily Cinder</p></div></footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const subscribeBtn = document.querySelector('button[type="submit"]');
+      if(subscribeBtn) subscribeBtn.addEventListener('click', function(e) { e.preventDefault(); const inp = document.querySelector('input[type="email"]'); if(inp && inp.value) { alert('Thank you for subscribing!'); inp.value = ''; } else alert('Please enter your email.'); });
+    });
+  </script>
+</body>
+</html>
