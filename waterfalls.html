@@ -8,12 +8,10 @@
   <meta name="author" content="Emily Cinder" />
   <title>Waterfall Hikes in Oregon | Glass Circuits Travel</title>
 
-  <!-- Tailwind + Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Leaflet + your map files -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="map.css">
@@ -21,7 +19,6 @@
   <script defer src="map.js"></script>
   <script defer src="menu.js"></script>
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -79,7 +76,6 @@
     }
     .atlas-breathe { animation: atlas-breathe 6s ease-in-out infinite; }
 
-    /* ========== GLOWY HOVER EFFECTS ========== */
     .vintage-card {
       background: rgba(245,241,232,0.95);
       border: 1px solid var(--dusty-mauve);
@@ -146,7 +142,6 @@
       text-decoration-color: var(--old-pink);
     }
 
-    /* intro text */
     .intro-text {
       font-size: 1.2rem;
       line-height: 1.7;
@@ -157,7 +152,6 @@
       margin-bottom: 2rem;
     }
 
-    /* ad space */
     .ad-space {
       background: rgba(245,241,232,0.90);
       border: 1px solid var(--sepia-brown);
@@ -174,7 +168,6 @@
       background: rgba(245,241,232,0.95);
     }
 
-    /* sidebar widgets (compact) */
     .sidebar-widget {
       background: rgba(245,241,232,0.95);
       border: 1px solid var(--dusty-mauve);
@@ -218,22 +211,6 @@
       margin-bottom: 0.25rem;
     }
 
-    /* placeholder image style */
-    .placeholder-img {
-      background-color: var(--dusty-mauve);
-      background-image: linear-gradient(45deg, rgba(245,241,232,0.1) 25%, transparent 25%, transparent 50%, rgba(245,241,232,0.1) 50%, rgba(245,241,232,0.1) 75%, transparent 75%, transparent);
-      background-size: 20px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--aged-paper);
-      font-family: var(--font-atlas);
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    /* title bar & glass buttons (same as other pages) */
     .top-rail {
       position: fixed;
       left: 0; right: 0; top: 0;
@@ -293,11 +270,9 @@
 <body class="min-h-screen bg-aged-paper">
   <script> window.SITE_HOME = "/glassblog/"; </script>
 
-  <!-- Title bar -->
   <div class="top-rail" aria-hidden="true"></div>
   <div class="top-title" aria-hidden="true">GLASS CIRCUITS TRAVEL</div>
 
-  <!-- Fixed top buttons -->
   <button id="menuBtn"
     class="fixed z-[80] rounded-2xl px-4 py-3 text-[#fff7f1] fixed-glass-btn hover:bg-black/30"
     style="top: calc(var(--safe-top) + 14px); left: calc(var(--safe-left) + 14px);"
@@ -316,7 +291,6 @@
     </svg>
   </button>
 
-  <!-- Menu backdrop + side menu -->
   <div id="menuBackdrop" class="fixed inset-0 z-[79] hidden bg-black/35 backdrop-blur-[2px]"></div>
   <aside id="menuDrawer"
     class="fixed left-0 top-0 z-[80] h-full w-[min(360px,88vw)] -translate-x-full transition-transform duration-300 ease-out">
@@ -344,7 +318,6 @@
     </div>
   </aside>
 
-  <!-- Map overlay (same as index) -->
   <div id="atlasBackdrop" class="atlas-backdrop" aria-hidden="true"></div>
   <div id="mapBackdrop" class="atlas-backdrop" aria-hidden="true"></div>
   <section id="atlasPanel" class="atlas-panel" aria-hidden="true">
@@ -375,7 +348,6 @@
 
   <!-- MAIN CONTENT -->
   <div class="max-w-6xl mx-auto px-4 pb-10">
-    
    
     <!-- Page header -->
     <header class="text-center mb-8">
@@ -402,7 +374,7 @@
           <!-- Multnomah Falls -->
           <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
             <a href="multnomah.html" class="full-click-overlay"></a>
-            <div class="placeholder-img w-full h-64" style="background-color: var(--dusty-mauve);">Multnomah Falls<br>📷 add photo</div>
+            <img src="images/Mfalls.jpg" alt="Multnomah Falls Oregon" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col justify-between h-full card-content">
               <div>
                 <span class="category-tag">Columbia River Gorge</span>
@@ -416,7 +388,7 @@
           <!-- Wahkeena Falls -->
           <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
             <a href="wahkeena.html" class="full-click-overlay"></a>
-            <div class="placeholder-img w-full h-64" style="background-color: var(--old-pink);">Wahkeena Falls<br>📷 add photo</div>
+            <img src="images/wahkeena%20falls.jpg" alt="Wahkeena Falls" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col justify-between h-full card-content">
               <div>
                 <span class="category-tag">Columbia River Gorge</span>
@@ -430,7 +402,7 @@
           <!-- Toketee Falls -->
           <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
             <a href="toketee.html" class="full-click-overlay"></a>
-            <div class="placeholder-img w-full h-64" style="background-color: var(--sepia-brown);">Toketee Falls<br>📷 add photo</div>
+            <img src="images/toketee-falls.jpg" alt="Toketee Falls columnar basalt" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col justify-between h-full card-content">
               <div>
                 <span class="category-tag">Umpqua National Forest</span>
@@ -441,9 +413,10 @@
             </div>
           </article>
           
-          <!-- Latourell Falls (coming soon) -->
-          <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
-            <div class="placeholder-img w-full h-64" style="background-color: var(--dusty-mauve);">Latourell Falls<br>📷 coming soon</div>
+          <!-- Latourell Falls -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="#" class="full-click-overlay"></a>
+            <img src="images/latourell-falls.jpg" alt="Latourell Falls" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col justify-between h-full card-content">
               <div>
                 <span class="category-tag">Columbia River Gorge</span>
@@ -455,21 +428,24 @@
           </article>
           
           <!-- Silver Falls (coming soon) -->
-          <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
-            <div class="placeholder-img w-full h-64" style="background-color: var(--old-pink);">Silver Falls<br>📷 coming soon</div>
-            <div class="p-6 flex flex-col justify-between h-full card-content">
-              <div>
-                <span class="category-tag">Willamette Valley</span>
-                <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Silver Falls State Park</h2>
-                <p class="text-shadow-mauve mb-4">The "Trail of Ten Falls" where you can walk behind four magnificent waterfalls.</p>
-              </div>
-              <span class="vintage-btn text-center opacity-70 cursor-not-allowed">Coming Soon</span>
+          <!-- Silver Falls -->
+        <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+          <a href="#" class="full-click-overlay"></a>
+          <img src="images/silver-falls.jpg" alt="Silver Falls State Park waterfall" class="w-full h-64 object-cover">
+          <div class="p-6 flex flex-col justify-between h-full card-content">
+            <div>
+              <span class="category-tag">Willamette Valley</span>
+              <h2 class="text-2xl font-semibold mb-3 text-shadow-mauve">Silver Falls State Park</h2>
+              <p class="text-shadow-mauve mb-4">The "Trail of Ten Falls" where you can walk behind four magnificent waterfalls.</p>
             </div>
-          </article>
-          
-          <!-- Horsetail Falls (coming soon) -->
-          <article class="vintage-card rounded-xl overflow-hidden blog-post relative opacity-60">
-            <div class="placeholder-img w-full h-64" style="background-color: var(--sepia-brown);">Horsetail Falls<br>📷 coming soon</div>
+            <span class="vintage-btn text-center opacity-70 cursor-not-allowed">Coming Soon</span>
+          </div>
+        </article>
+                  
+          <!-- Horsetail Falls -->
+          <article class="vintage-card rounded-xl overflow-hidden blog-post relative">
+            <a href="#" class="full-click-overlay"></a>
+            <img src="images/horsetail-falls.jpg" alt="Horsetail Falls" class="w-full h-64 object-cover">
             <div class="p-6 flex flex-col justify-between h-full card-content">
               <div>
                 <span class="category-tag">Columbia River Gorge</span>
@@ -513,12 +489,12 @@
       <!-- Sidebar (1/3) -->
       <aside class="lg:w-1/3">
         
-        <!-- About author -->
+        <!-- About author with real photo -->
         <div class="sidebar-widget">
           <h3 class="widget-title">About the Author</h3>
           <div class="flex items-start gap-4 mb-4">
             <div class="w-16 h-16 rounded-full overflow-hidden border border-dusty-mauve">
-              <div class="w-full h-full bg-dusty-mauve/30 flex items-center justify-center text-shadow-mauve"><i class="fas fa-user fa-2x"></i></div>
+              <img src="images/homework%20crop%20about%20me.png" alt="Emily Cinder portrait" class="w-full h-full object-cover">
             </div>
             <div>
               <h4 class="font-semibold text-shadow-mauve text-lg">Emily Cinder</h4>
@@ -551,19 +527,19 @@
           </div>
         </div>
         
-        <!-- Related posts -->
+        <!-- Related posts with real images -->
         <div class="sidebar-widget">
           <h3 class="widget-title">Related Posts</h3>
           <div class="space-y-4">
             <div class="related-post">
-              <div class="w-[70px] h-[70px] rounded-lg placeholder-img" style="background-color: var(--dusty-mauve); font-size:0.7rem;">Tabor</div>
+              <img src="images/mt%20tabor-20251021T163458Z-1-001/mt%20tabor/tabor15.jpg" alt="Mount Tabor Park" class="w-[70px] h-[70px] object-cover rounded-lg">
               <div>
                 <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="mttabor.html">Mount Tabor Park Guide</a></h4>
                 <p class="text-dusty-mauve">Portland's volcanic sanctuary</p>
               </div>
             </div>
             <div class="related-post">
-              <div class="w-[70px] h-[70px] rounded-lg placeholder-img" style="background-color: var(--old-pink); font-size:0.7rem;">Forest</div>
+              <img src="images/moss.jpg" alt="Mossy forest trail" class="w-[70px] h-[70px] object-cover rounded-lg">
               <div>
                 <h4 class="font-semibold text-shadow-mauve hover:text-old-pink"><a href="forest.html">Moss‑Covered Trails</a></h4>
                 <p class="text-dusty-mauve">Old‑growth forest magic</p>
@@ -586,9 +562,6 @@
     </div>
   </div>
 
-  <!-- No footer (as requested) -->
-
-  <!-- Simple subscribe alert -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const subscribeBtn = document.querySelector('button[type="submit"]');
