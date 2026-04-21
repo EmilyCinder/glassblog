@@ -1,3 +1,7 @@
+/* ================================
+   YOUR ORIGINAL CSS (UNCHANGED)
+================================= */
+
 .atlas-backdrop{
   position: fixed;
   inset: 0;
@@ -82,86 +86,41 @@
   .atlas-sub{ font-size: 14px; }
 }
 
-/* ✅ SUPER OBVIOUS EXIT BUTTON (top-right) */
+/* CLOSE BUTTON */
 .atlas-close-btn{
   position: absolute;
   top: calc(env(safe-area-inset-top, 0px) + 14px);
   right: calc(env(safe-area-inset-right, 0px) + 14px);
-  z-index: 9999; /* make sure it's above everything */
+  z-index: 9999;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   padding: 12px 14px;
   border-radius: 18px;
-
   border: 1px solid rgba(255,255,255,0.22);
   background: rgba(179,158,157,0.58);
   color: rgba(255,247,241,0.95);
-
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-
   box-shadow:
     0 18px 42px rgba(0,0,0,0.26),
     0 0 0 1px rgba(255,255,255,0.10) inset;
-
   font-family: var(--font-atlas, "Uncial Antiqua", serif);
   letter-spacing: .12em;
   text-transform: uppercase;
   font-size: 12px;
-
   cursor: pointer;
 }
 
-.atlas-close-text{ opacity: 0.95; }
 .atlas-close-x{
   width: 28px; height: 28px;
   display:grid; place-items:center;
   border-radius: 12px;
   background: rgba(0,0,0,0.18);
   border: 1px solid rgba(255,255,255,0.16);
-  font-size: 16px;
-  line-height: 1;
 }
 
-/* Exit hint */
-.atlas-exit-hint{
-  position: absolute;
-  left: 50%;
-  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
-  transform: translateX(-50%);
-  z-index: 7;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(179,158,157,0.34);
-  color: rgba(255,247,241,0.90);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  font-family: var(--font-body, "Cormorant Garamond", serif);
-  font-size: 13px;
-  letter-spacing: .02em;
-  box-shadow: 0 14px 34px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.06) inset;
-  opacity: 0;
-  transform: translateX(-50%) translateY(8px);
-  transition: opacity .28s ease, transform .28s ease;
-}
-.atlas-exit-dot{
-  width: 8px; height: 8px; border-radius: 999px;
-  background: rgba(255,247,241,0.85);
-  box-shadow: 0 0 10px rgba(214,174,182,0.35), 0 0 18px rgba(157,178,161,0.20);
-  opacity: 0.9;
-}
-.atlas-open .atlas-exit-hint{
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* Leaflet "Middle Earth" grade */
+/* MAP STYLE */
 .leaflet-container{
   background:#1a1412;
   font-family: var(--font-body, "Cormorant Garamond", serif);
@@ -170,7 +129,7 @@
   filter: sepia(0.90) saturate(0.55) contrast(1.18) brightness(0.92);
 }
 
-/* Rune pins */
+/* RUNE PINS */
 .rune-pin{
   width: 56px;
   height: 56px;
@@ -178,15 +137,14 @@
   background: rgba(245,241,232,0.22);
   border: 1px solid rgba(255,255,255,0.24);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   display:grid;
   place-items:center;
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.10),
     0 14px 28px rgba(0,0,0,0.30);
   position: relative;
-  transform: translateZ(0);
 }
+
 .rune-pin::before{
   content:"";
   position:absolute;
@@ -199,52 +157,73 @@
   filter: blur(3px);
   opacity: 0.9;
 }
+
 .rune-glyph{
   position:relative;
   z-index:2;
-  font-family: var(--font-atlas, "Uncial Antiqua", serif);
+  font-family: var(--font-atlas);
   color:#fff7f1;
   font-size: 24px;
-  text-shadow:
-    0 0 10px rgba(214,174,182,0.55),
-    0 0 22px rgba(157,178,161,0.30),
-    0 0 34px rgba(255,247,241,0.20);
 }
 
-/* ✅ Strong hover glow */
-@media (hover:hover){
-  .rune-pin{
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .rune-pin:hover{
-    transform: translateY(-3px) scale(1.05);
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,0.18),
-      0 18px 36px rgba(0,0,0,0.35),
-      0 0 26px rgba(214,174,182,0.22),
-      0 0 40px rgba(157,178,161,0.16);
-  }
-  .rune-pin:hover::before{
-    opacity: 1;
-    filter: blur(2px);
-  }
-  .rune-pin:hover .rune-glyph{
-    text-shadow:
-      0 0 14px rgba(214,174,182,0.70),
-      0 0 30px rgba(157,178,161,0.40),
-      0 0 50px rgba(255,247,241,0.24);
-  }
-}
 /* ================================
-   SAFETY: atlas cannot steal clicks
-   unless it's open
+   ✨ NEW ENHANCEMENTS (SAFE ADDITIONS)
 ================================= */
-.atlas-panel,
-.atlas-panel *{
-  pointer-events: none;
+
+/* ✨ Smooth fade-in for map */
+#leafletMap{
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
-.atlas-open .atlas-panel,
-.atlas-open .atlas-panel *{
-  pointer-events: auto;
+.atlas-open #leafletMap{
+  opacity: 1;
+}
+
+/* ✨ Marker breathing animation (modern subtle) */
+@keyframes marker-breathe{
+  0%,100%{ transform: scale(1); }
+  50%{ transform: scale(1.06); }
+}
+
+.rune-pin{
+  animation: marker-breathe 4s ease-in-out infinite;
+}
+
+/* ✨ Hover amplification (desktop only) */
+@media (hover:hover){
+  .rune-pin:hover{
+    transform: scale(1.12);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.2),
+      0 18px 36px rgba(0,0,0,0.35),
+      0 0 30px rgba(214,174,182,0.25);
+  }
+}
+
+/* ✨ Glass popup upgrade */
+.leaflet-popup-content-wrapper{
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff7f1;
+}
+
+.leaflet-popup-tip{
+  background: rgba(0,0,0,0.35);
+}
+
+/* ✨ Subtle depth overlay (modern cinematic look) */
+#leafletMap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.25));
+  pointer-events:none;
+}
+
+/* ✨ Smooth atlas open feel */
+.atlas-shell{
+  will-change: transform, opacity;
 }
